@@ -65,6 +65,7 @@ const eslintConfig = [
 
       // Prettier Rules
       "prettier/prettier": "error",
+      "linebreak-style": ["error", "any"],
     },
   },
 ];
