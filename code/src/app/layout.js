@@ -1,3 +1,5 @@
+import "../styles/main.css";
+
 export const metadata = {
   title: "MBST",
   description: "Mobile Store",
