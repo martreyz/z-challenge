@@ -2,7 +2,7 @@ import ProductForList from "@/domain/entities/ProductForList";
 
 export const fetchAllProducts = async () => {
   const response = await fetch(
-    "https://prueba-tecnica-api-tienda-moviles.onrender.com/products",
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products`,
     {
       method: "GET",
       headers: {
