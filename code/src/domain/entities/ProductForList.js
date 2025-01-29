@@ -9,7 +9,6 @@ import ProductBase from "@/domain/entities/ProductBase";
 class ProductForList extends ProductBase {
   /**
    * Creates a new ProductForList instance.
-   * @param {Object} params - Product list parameters.
    * @param {string} params.id - The unique identifier of the product.
    * @param {string} params.name - The name of the product.
    * @param {string} params.brand - The brand of the product.

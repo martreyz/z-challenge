@@ -8,7 +8,6 @@ import ProductBase from "@/domain/entities/ProductBase";
 
 class ProductForDetail extends ProductBase {
   /**
-   * @param {Object} params - Product properties
    * @param {string} params.id - Unique product identifier
    * @param {string} params.brand - Brand name
    * @param {string} params.name - Product name
