@@ -1,5 +1,5 @@
-import { products } from "/pages/api/products";
-import { verifyAPIKey } from "/pages/utils";
+import { products } from "/src/app/api/products";
+import { verifyAPIKey } from "/src/app/utils";
 
 export default function handler(req, res) {
   const { id: queryId } = req.query;

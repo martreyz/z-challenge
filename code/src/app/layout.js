@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Z Challenge",
-  description: "Phone catalog and shop",
+  title: "MBST",
+  description: "Mobile Store",
 };
 
 export default function RootLayout({ children }) {

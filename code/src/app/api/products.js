@@ -1,4 +1,4 @@
-import { verifyAPIKey } from "/pages/utils";
+import { verifyAPIKey } from "/src/app/utils";
 
 export default function handler(req, res) {
   const apiKey = req.headers["x-api-key"];
