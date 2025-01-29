@@ -1,11 +1,11 @@
 import ProductForList from "@/domain/entities/ProductForList";
-import { fetchAllProducts } from "@/infra/API/fetchAllProducts";
+import { fetchProducts } from "@/infra/API/products";
 
 export const getAllProducts = async () => {
-  const data = await fetchAllProducts();
+  const data = await fetchProducts();
 
-  const smartphoneList = data.map(
-    (smartPhone) => new ProductForList(smartPhone)
+  const smartphoneList = data.map((smartPhone) =>
+    ProductForList(smartPhone).create()
   );
 
   return smartphoneList;
