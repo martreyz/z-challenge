@@ -6,9 +6,10 @@ const port = 3001;
 
 app.get("/products", (req, res) => {
   const apiKey = req.headers["x-api-key"];
+  const limit = parseInt(req.query.limit);
   verifyAPIKey(res, apiKey);
 
-  res.status(200).json(products);
+  res.status(200).json(products.slice(0, limit));
 });
 
 app.get("/products/:productId", (req, res) => {
