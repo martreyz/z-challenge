@@ -33,6 +33,10 @@ const eslintConfig = [
       "jsx-a11y": jsxA11yPlugin,
     },
     rules: {
+      "import/no-unresolved": "error",
+      "import/no-extraneous-dependencies": "error",
+      "import/first": "error",
+      "import/no-duplicates": "error",
       // Core JavaScript Rules
       "no-unused-vars": [
         "warn",
