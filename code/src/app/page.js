@@ -1,11 +1,10 @@
-import { getAllProducts } from "@/app/usecases/getAllProducts";
 import { SmartphoneListProvider } from "@/ui/contexts/SmartphoneListContext";
-import ProductListWrapper from "@/ui/productList/ProductListWrapper";
+import ProductList from "@/ui/productList/SmartphoneList";
+import Searcher from "@/ui/searcher/Searcher";
+
 import Image from "next/image";
 
 export default async function Home() {
-  const allSmartphones = await getAllProducts();
-
   return (
     <SmartphoneListProvider>
       <header>
@@ -18,7 +17,8 @@ export default async function Home() {
         />
       </header>
       <main>
-        <ProductListWrapper allSmartphones={allSmartphones} />
+        <Searcher />
+        <ProductList />
       </main>
     </SmartphoneListProvider>
   );

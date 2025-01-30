@@ -1,0 +1,39 @@
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px 24px;
+}
+
+.smartphoneItem {
+  display: flex;
+  width: 100%;
+  height: 344px;
+  border: 1px solid black;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.smartphoneItem__brand {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 12.09px;
+  color: #79736d;
+  text-transform: uppercase;
+}
+
+.smartphoneItem__device {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 14.51px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+.smartphoneItem__imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 257px;
+}
