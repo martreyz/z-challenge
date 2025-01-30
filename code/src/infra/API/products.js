@@ -1,5 +1,3 @@
-import ProductForList from "@/domain/entities/ProductForList";
-
 export const fetchProducts = async (searchQuery) => {
   const params = new URLSearchParams({
     limit: 20,
