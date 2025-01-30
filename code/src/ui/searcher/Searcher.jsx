@@ -1,15 +1,14 @@
 "use client";
 
 import styles from "@/styles/searcher.module.css";
+import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
 
-const Searcher = ({
-  numberOfResults,
-  searchInput,
-  handleSearchInputChange,
-}) => {
+const Searcher = ({ searchInput, handleSearchInputChange }) => {
+  const { numberOfResults } = useSmartphoneListContext();
+
   return (
-    <>
-      <form>
+    <section className={styles.searcher}>
+      <form className={styles.searcherForm}>
         <input
           className={styles.searcherInput}
           value={searchInput}
@@ -19,8 +18,8 @@ const Searcher = ({
         />
         <button type="submit">Search</button>
       </form>
-      <p className={styles.counter}>{numberOfResults} results</p>
-    </>
+      <p className={styles.resultsCounter}>{numberOfResults} results</p>
+    </section>
   );
 };
 

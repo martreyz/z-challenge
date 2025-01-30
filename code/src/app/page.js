@@ -1,5 +1,5 @@
 import { SmartphoneListProvider } from "@/ui/contexts/SmartphoneListContext";
-import ProductList from "@/ui/productList/ProductList";
+import ProductList from "@/ui/productList/SmartphoneList";
 import Searcher from "@/ui/searcher/Searcher";
 
 import Image from "next/image";
