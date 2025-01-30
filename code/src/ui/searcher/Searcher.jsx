@@ -2,17 +2,22 @@
 
 import styles from "@/styles/searcher.module.css";
 import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
+import useSmartphoneSearcher from "@/ui/hooks/useSmartphoneSearcher";
 
-const Searcher = ({ searchInput, handleSearchInputChange }) => {
-  const { numberOfResults } = useSmartphoneListContext();
+const Searcher = () => {
+  const { numberOfResults, updateSmartphoneListData } =
+    useSmartphoneListContext();
+  const { searchCriteria, handleSearchCriteriaChange } = useSmartphoneSearcher(
+    updateSmartphoneListData
+  );
 
   return (
     <section className={styles.searcher}>
       <form className={styles.searcherForm}>
         <input
           className={styles.searcherInput}
-          value={searchInput}
-          onChange={handleSearchInputChange}
+          value={searchCriteria}
+          onChange={(ev) => handleSearchCriteriaChange(ev.currentTarget.value)}
           type="text"
           placeholder="Search for a smartphone..."
         />

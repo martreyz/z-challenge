@@ -9,13 +9,15 @@ export const useSmartphoneListContext = () => useContext(SmartphoneListContext);
 export const SmartphoneListProvider = ({ children }) => {
   const [smartphoneList, setSmartphoneList] = useState([]);
 
+  const updateSmartphoneListData = async (searchCriteria) => {
+    const params = searchCriteria && `search=${searchCriteria}`;
+    const smartphoneListResponse = await fetch(`/api/products?${params}`);
+    const smartphoneList = await smartphoneListResponse.json();
+    updateSmartphoneList(smartphoneList);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const smartphoneInitialListResponse = await fetch("/api/products");
-      const smartphoneInitialList = await smartphoneInitialListResponse.json();
-      setSmartphoneList(smartphoneInitialList);
-    };
-    fetchData();
+    updateSmartphoneListData();
   }, []);
 
   const updateSmartphoneList = (newSmartphoneList) =>
@@ -25,7 +27,7 @@ export const SmartphoneListProvider = ({ children }) => {
     <SmartphoneListContext.Provider
       value={{
         smartphoneList,
-        updateSmartphoneList,
+        updateSmartphoneListData,
         numberOfResults: smartphoneList.length,
       }}
     >

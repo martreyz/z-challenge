@@ -1,10 +1,12 @@
 export const fetchProducts = async (searchQuery) => {
-  const params = new URLSearchParams({
+  const objectForParams = {
     limit: 20,
-    ...(searchQuery && { search: searchQuery }),
-  });
+    ...(searchQuery ? { search: searchQuery } : {}),
+  };
+
+  const params = new URLSearchParams(objectForParams);
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products?${params}`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products?${params.toString()}`,
     {
       method: "GET",
       headers: {
