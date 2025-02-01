@@ -21,8 +21,9 @@ export const SmartphoneDetailProvider = ({ id, children }) => {
     updateSmartphoneDetailData(id);
   }, [id]);
 
-  const updateSmartphoneDetail = (newSmartphoneDetail) =>
+  const updateSmartphoneDetail = (newSmartphoneDetail) => {
     setSmartphoneDetail(newSmartphoneDetail);
+  };
 
   return (
     <SmartphoneDetailContext.Provider
