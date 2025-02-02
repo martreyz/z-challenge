@@ -1,0 +1,25 @@
+.cartButtonGroup {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 10px;
+  flex-wrap: nowrap;
+  padding: 0 10px;
+}
+
+.cartButton {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cartButtonPay {
+  color: white;
+  background-color: black;
+}
