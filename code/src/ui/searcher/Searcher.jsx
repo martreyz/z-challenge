@@ -24,7 +24,6 @@ const Searcher = () => {
           type="text"
           placeholder={messages("searcher.input.placeholder")}
         />
-        <button type="submit">Search</button>
       </form>
       <p className={styles.resultsCounter}>
         {messages("searcher.input.helper", { numberOfResults })}
