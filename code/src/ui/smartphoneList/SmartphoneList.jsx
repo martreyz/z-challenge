@@ -1,18 +1,18 @@
 "use client";
 
-import { useSmartphoneListContext } from "../contexts/SmartphoneListContext";
-import styles from "@/styles/productList.module.css";
+import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
+import styles from "@/styles/smartphoneList.module.css";
 
-import Image from "next/image";
-import SmartphoneItem from "./SmartphoneListItem";
+import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
 
-const ProductList = () => {
+const SmartphoneList = () => {
   const { smartphoneList } = useSmartphoneListContext();
 
   return (
-    <section className={styles.productList}>
+    <section className={styles.smartphoneList}>
       {smartphoneList.map(({ id, name, brand, basePrice, imageUrl }, i) => (
         <SmartphoneItem
+          id={id}
           key={id + i}
           name={name}
           brand={brand}
@@ -24,4 +24,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default SmartphoneList;

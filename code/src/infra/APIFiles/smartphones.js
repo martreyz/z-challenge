@@ -1,4 +1,4 @@
-export const fetchProducts = async (searchQuery) => {
+export const fetchSmartphoneList = async (searchQuery) => {
   const objectForParams = {
     limit: 20,
     ...(searchQuery ? { search: searchQuery } : {}),

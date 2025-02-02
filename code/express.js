@@ -12,10 +12,11 @@ app.get("/products", (req, res) => {
   res.status(200).json(products.slice(0, limit));
 });
 
-app.get("/products/:productId", (req, res) => {
-  const { id: queryId } = req.query;
+app.get("/products/:id", (req, res) => {
+  const { id } = req.params;
+
   const apiKey = req.headers["x-api-key"];
-  const productDetail = generateProductByIdResponse(queryId);
+  const productDetail = generateProductByIdResponse(id);
 
   verifyAPIKey(res, apiKey);
 

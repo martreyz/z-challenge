@@ -1,0 +1,19 @@
+.header {
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.shoppingCart {
+  display: flex;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.shoppingCartItems {
+  margin: 3px 0px 0px 6px;
+}

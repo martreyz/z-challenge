@@ -1,0 +1,16 @@
+.smartphoneDetailPage__header {
+  width: 100%;
+  background-color: white;
+  z-index: 3;
+}
+
+.smartphoneDetail__backButton {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 14.51px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 50px;
+}

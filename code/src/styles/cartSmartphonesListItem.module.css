@@ -1,0 +1,18 @@
+.cartSmartphonesListItem__imageWrapper {
+  position: relative;
+  width: 160px;
+  height: 197px;
+}
+
+.cartSmartphonesListItem {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 14.51px;
+  text-align: left;
+}
+
+.cartSmartphonesListItem__removeButton {
+  color: red;
+}

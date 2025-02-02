@@ -1,4 +1,4 @@
-.productList {
+.smartphoneList {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -13,6 +13,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 5%;
+}
+
+.smartphoneItem:hover {
+  background-color: black;
 }
 
 .smartphoneItem__brand {
