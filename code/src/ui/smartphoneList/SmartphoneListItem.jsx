@@ -13,16 +13,20 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
         className={styles.smartphoneItem__clickable}
       >
         <div className={styles.smartphoneItem__imageWrapper}>
-          <Image
-            src={imageUrl}
-            alt="Logo"
-            fill
-            style={{
-              objectFit: "scale-down",
-              width: "100%",
-              height: "100%",
-            }}
-          />
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt="Logo"
+              fill
+              style={{
+                objectFit: "scale-down",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          ) : (
+            "Image not available"
+          )}
         </div>
         <div>
           <span className={styles.smartphoneItem__brand}>{brand}</span>

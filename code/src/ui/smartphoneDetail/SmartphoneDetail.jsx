@@ -5,14 +5,15 @@ import styles from "@/styles/smartphoneDetail.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import SmartphoneItem from "../smartphoneList/SmartphoneListItem";
+import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
 import SmartphoneForList from "@/domain/entities/SmartphoneForList";
+import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const SmartphoneDetail = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();
-  if (!smartphoneDetail.name) return;
+  const { addNewSmartphoneToCart } = useShoppingCart();
 
-  const { storageOptions, colorOptions, name, basePrice, similarProducts } =
+  const { id, storageOptions, colorOptions, name, basePrice, similarProducts } =
     smartphoneDetail;
 
   const [selectedStorageOption, setSelectedStorageOption] = useState(undefined);
@@ -25,16 +26,20 @@ const SmartphoneDetail = () => {
     <div className={styles.smartphoneDetail}>
       <section className={styles.smartphoneDetail__shoppingInfo}>
         <div className={styles.smartphoneDetail__imageWrapper}>
-          <Image
-            src={selectedColorOption?.imageUrl}
-            alt={`${name} in color ${colorOptions?.[0].name}`}
-            fill
-            style={{
-              objectFit: "scale-down",
-              width: "100%",
-              height: "100%",
-            }}
-          />
+          {selectedColorOption?.imageUrl ? (
+            <Image
+              src={selectedColorOption.imageUrl}
+              alt={`${name} in color ${colorOptions[0]?.name}`}
+              fill
+              style={{
+                objectFit: "scale-down",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          ) : (
+            "Image not available"
+          )}
         </div>
         <span className={styles.smartphoneDetail__name}>{name}</span>
         <span className={styles.smartphoneDetail__basePrice}>
@@ -100,63 +105,75 @@ const SmartphoneDetail = () => {
         <button
           disabled={!selectedStorageOption}
           className={styles.smartphoneDetail__addButton}
+          onClick={() => {
+            addNewSmartphoneToCart({
+              id,
+              name,
+              imageUrl: selectedColorOption.imageUrl,
+              color: selectedColorOption.name,
+              storage: selectedStorageOption.capacity,
+              price: selectedStorageOption.price,
+            });
+          }}
         >
           Añadir
         </button>
       </section>
       <section>
         <table border="1">
-          <tr>
-            <td>Brand</td>
-            <td>{smartphoneDetail.brand}</td>
-          </tr>
-          <tr>
-            <td>Name</td>
-            <td>{smartphoneDetail.name}</td>
-          </tr>
-          <tr>
-            <td>Description</td>
-            <td>{smartphoneDetail.description}</td>
-          </tr>
-          <tr>
-            <td>Screen</td>
-            <td>{smartphoneDetail.specs.screen}</td>
-          </tr>
-          <tr>
-            <td>Resolution</td>
-            <td>{smartphoneDetail.specs.resolution}</td>
-          </tr>
-          <tr>
-            <td>Processor</td>
-            <td>{smartphoneDetail.specs.processor}</td>
-          </tr>
-          <tr>
-            <td>Main camera</td>
-            <td>{smartphoneDetail.specs.mainCamera}</td>
-          </tr>
-          <tr>
-            <td>Selfie camera</td>
-            <td>{smartphoneDetail.specs.selfieCamera}</td>
-          </tr>
-          <tr>
-            <td>Battery</td>
-            <td>{smartphoneDetail.specs.battery}</td>
-          </tr>
-          <tr>
-            <td>OS</td>
-            <td>{smartphoneDetail.specs.os}</td>
-          </tr>
-          <tr>
-            <td>Screen refresh rate</td>
-            <td>{smartphoneDetail.specs.screenRefreshRate}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Brand</td>
+              <td>{smartphoneDetail.brand}</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>{smartphoneDetail.name}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>{smartphoneDetail.description}</td>
+            </tr>
+            <tr>
+              <td>Screen</td>
+              <td>{smartphoneDetail.specs.screen}</td>
+            </tr>
+            <tr>
+              <td>Resolution</td>
+              <td>{smartphoneDetail.specs.resolution}</td>
+            </tr>
+            <tr>
+              <td>Processor</td>
+              <td>{smartphoneDetail.specs.processor}</td>
+            </tr>
+            <tr>
+              <td>Main camera</td>
+              <td>{smartphoneDetail.specs.mainCamera}</td>
+            </tr>
+            <tr>
+              <td>Selfie camera</td>
+              <td>{smartphoneDetail.specs.selfieCamera}</td>
+            </tr>
+            <tr>
+              <td>Battery</td>
+              <td>{smartphoneDetail.specs.battery}</td>
+            </tr>
+            <tr>
+              <td>OS</td>
+              <td>{smartphoneDetail.specs.os}</td>
+            </tr>
+            <tr>
+              <td>Screen refresh rate</td>
+              <td>{smartphoneDetail.specs.screenRefreshRate}</td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section className={styles.smartphoneDetail__similarItems}>
         <h2>Similar items</h2>
         <div className={styles.smartphoneDetail__similarItemsCarousel}>
           {similarProducts
-            .map((smartphone) => SmartphoneForList(smartphone).create())
+            ?.map((smartphone) => SmartphoneForList(smartphone).create())
             .map(({ id, brand, name, basePrice, imageUrl }, i) => (
               <SmartphoneItem
                 key={id + i}
