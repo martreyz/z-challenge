@@ -5,6 +5,11 @@
   padding: 15px;
 }
 
+.smartphoneDetail__shoppingInfo {
+  display: flex;
+  flex-direction: column;
+}
+
 .smartphoneDetail__imageWrapper {
   position: relative;
   width: 100%;
@@ -25,6 +30,10 @@
   font-weight: 300;
   line-height: 16.93px;
   margin-top: 15px;
+}
+
+.smartphoneDetail__storage {
+  margin-top: 40px;
 }
 
 .smartphoneDetail__colorForm {
@@ -51,7 +60,7 @@
 }
 
 .smartphoneDetail__colorForm {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .smartphoneDetail__colorLabel {
@@ -65,4 +74,33 @@
 .smartphoneDetail__colorInput,
 .smartphoneDetail__storageInput {
   display: none;
+}
+
+.smartphoneDetail__addButton {
+  width: 100%;
+  padding: 15px 0px;
+  margin: 40px 0;
+  color: white;
+  background-color: black;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.smartphoneDetail__addButton:disabled {
+  background-color: lightgray;
+}
+
+.smartphoneDetail__similarItemsCarousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-flow: column;
+  overflow-x: scroll;
+}
+
+.smartphoneDetail__similarItemsCarousel ul {
+  width: 300px;
 }

@@ -5,93 +5,105 @@ import styles from "@/styles/smartphoneDetail.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
+import SmartphoneItem from "../smartphoneList/SmartphoneListItem";
+import SmartphoneForList from "@/domain/entities/SmartphoneForList";
 
 const SmartphoneDetail = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();
   if (!smartphoneDetail.name) return;
 
-  const { storageOptions, colorOptions, name, basePrice } = smartphoneDetail;
+  const { storageOptions, colorOptions, name, basePrice, similarProducts } =
+    smartphoneDetail;
 
-  const [selectedStorageOption, setSelectedStorageOption] = useState(
-    storageOptions[0].capacity
-  );
+  const [selectedStorageOption, setSelectedStorageOption] = useState(undefined);
 
   const [selectedColorOption, setSelectedColorOption] = useState(
-    colorOptions[0].name
+    colorOptions[0]
   );
 
-  console.log(smartphoneDetail, colorOptions);
   return (
     <div className={styles.smartphoneDetail}>
-      <div className={styles.smartphoneDetail__imageWrapper}>
-        <Image
-          src={colorOptions?.[0].imageUrl}
-          alt={`${name} in color ${colorOptions?.[0].name}`}
-          fill
-          style={{
-            objectFit: "scale-down",
-            width: "100%",
-            height: "100%",
-          }}
-        />
-      </div>
-      <span className={styles.smartphoneDetail__name}>{name}</span>
-      <span className={styles.smartphoneDetail__basePrice}>
-        From {basePrice}
-      </span>
-      <div className={styles.smartphoneDetail__storage}>
-        <span>Storage. How much space do you need?</span>
-        <form className={styles.smartphoneDetail__storageForm}>
-          {storageOptions?.map((option, i) => (
-            <label
-              className={styles.smartphoneDetail__storageLabel}
-              key={option.capacity + i}
-              style={{
-                "--dynamic-storageLabel-borderColor":
-                  selectedStorageOption === option.capacity
-                    ? "#000000"
-                    : "#CCCCCC",
-              }}
-            >
-              <input
-                className={styles.smartphoneDetail__storageInput}
-                type="radio"
-                name={option.capacity}
-                value={option.capacity}
-                checked={selectedStorageOption === option.capacity}
-                onChange={() => setSelectedStorageOption(option.capacity)}
-              />
-              {option.capacity}
-            </label>
-          ))}
-        </form>
-      </div>
-      <div className={styles.smartphoneDetail__color}>
-        <span>Color. Pick your favourite</span>
-        <form className={styles.smartphoneDetail__colorForm}>
-          {colorOptions?.map((option, i) => (
-            <label
-              className={styles.smartphoneDetail__colorLabel}
-              key={option.name + i}
-              style={{
-                "--dynamic-colorLabel-color": option.hexCode,
-                "--dynamic-colorLabel-borderColor":
-                  selectedColorOption === option.name ? "#000000" : "#CCCCCC",
-              }}
-            >
-              <input
-                className={styles.smartphoneDetail__colorInput}
-                type="radio"
-                name={option.name}
-                value={option.name}
-                checked={selectedStorageOption === option.name}
-                onChange={() => setSelectedColorOption(option.name)}
-              />
-            </label>
-          ))}
-        </form>
-      </div>
-      <button>Añadir</button>
+      <section className={styles.smartphoneDetail__shoppingInfo}>
+        <div className={styles.smartphoneDetail__imageWrapper}>
+          <Image
+            src={selectedColorOption?.imageUrl}
+            alt={`${name} in color ${colorOptions?.[0].name}`}
+            fill
+            style={{
+              objectFit: "scale-down",
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </div>
+        <span className={styles.smartphoneDetail__name}>{name}</span>
+        <span className={styles.smartphoneDetail__basePrice}>
+          {selectedStorageOption
+            ? selectedStorageOption.price
+            : `From ${basePrice}`}
+        </span>
+        <div className={styles.smartphoneDetail__storage}>
+          <span>Storage. How much space do you need?</span>
+          <form className={styles.smartphoneDetail__storageForm}>
+            {storageOptions?.map((option, i) => (
+              <label
+                className={styles.smartphoneDetail__storageLabel}
+                key={option.capacity + i}
+                style={{
+                  "--dynamic-storageLabel-borderColor":
+                    selectedStorageOption?.capacity === option.capacity
+                      ? "#000000"
+                      : "#CCCCCC",
+                }}
+              >
+                <input
+                  className={styles.smartphoneDetail__storageInput}
+                  type="radio"
+                  name={option.capacity}
+                  value={option.capacity}
+                  checked={selectedStorageOption?.capacity === option.capacity}
+                  onChange={() => setSelectedStorageOption(option)}
+                />
+                {option.capacity}
+              </label>
+            ))}
+          </form>
+        </div>
+        <div className={styles.smartphoneDetail__color}>
+          <span>Color. Pick your favourite</span>
+          <form className={styles.smartphoneDetail__colorForm}>
+            {colorOptions?.map((option, i) => (
+              <label
+                className={styles.smartphoneDetail__colorLabel}
+                key={option.name + i}
+                style={{
+                  "--dynamic-colorLabel-color": option.hexCode,
+                  "--dynamic-colorLabel-borderColor":
+                    selectedColorOption?.name === option.name
+                      ? "#000000"
+                      : "#CCCCCC",
+                }}
+              >
+                <input
+                  className={styles.smartphoneDetail__colorInput}
+                  type="radio"
+                  name={option.name}
+                  value={option.name}
+                  checked={selectedStorageOption?.name === option.name}
+                  onChange={() => setSelectedColorOption(option)}
+                />
+              </label>
+            ))}
+          </form>
+          <span>{selectedColorOption?.name}</span>
+        </div>
+        <button
+          disabled={!selectedStorageOption}
+          className={styles.smartphoneDetail__addButton}
+        >
+          Añadir
+        </button>
+      </section>
       <section>
         <table border="1">
           <tr>
@@ -139,6 +151,23 @@ const SmartphoneDetail = () => {
             <td>{smartphoneDetail.specs.screenRefreshRate}</td>
           </tr>
         </table>
+      </section>
+      <section className={styles.smartphoneDetail__similarItems}>
+        <h2>Similar items</h2>
+        <div className={styles.smartphoneDetail__similarItemsCarousel}>
+          {similarProducts
+            .map((smartphone) => SmartphoneForList(smartphone).create())
+            .map(({ id, brand, name, basePrice, imageUrl }, i) => (
+              <SmartphoneItem
+                key={id + i}
+                id={id}
+                brand={brand}
+                name={name}
+                basePrice={basePrice}
+                imageUrl={imageUrl}
+              />
+            ))}
+        </div>
       </section>
     </div>
   );
