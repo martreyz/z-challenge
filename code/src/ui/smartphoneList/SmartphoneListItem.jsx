@@ -9,6 +9,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   return (
     <ul className={styles.smartphoneItem}>
       <Link
+        prefetch={false}
         href={`/products/${id}`}
         className={styles.smartphoneItem__clickable}
       >

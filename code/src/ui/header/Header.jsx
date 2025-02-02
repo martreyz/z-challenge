@@ -5,18 +5,10 @@ import Link from "next/link";
 
 import styles from "@/styles/header.module.css";
 
-import { useState, useEffect } from "react";
-
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const Header = () => {
   const { cartSmartphonesList } = useShoppingCart();
-  const [cartLength, setCartLength] = useState(cartSmartphonesList.length);
-
-  useEffect(() => {
-    console.log("🔄 Header actualizado con:", cartSmartphonesList);
-    setCartLength(cartSmartphonesList.length); // ✅ Forzar actualización
-  }, [cartSmartphonesList]);
 
   return (
     <header className={styles.header}>

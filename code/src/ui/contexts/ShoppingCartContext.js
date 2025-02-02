@@ -25,7 +25,6 @@ export const ShoppingCartProvider = ({ children }) => {
   }, [cartSmartphonesList]);
 
   const addNewSmartphoneToCart = (newSmartphone) => {
-    console.log(newSmartphone);
     setCartSmartphonesList((prev) => [
       ...prev,
       {
