@@ -6,6 +6,8 @@ import SmartphoneDetail from "@/ui/smartphoneDetail/SmartphoneDetail";
 import { ShoppingCartProvider } from "@/ui/contexts/ShoppingCartContext";
 import Header from "@/ui/header/Header";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home({ params }) {
   const { id } = await params;
 
