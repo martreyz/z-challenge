@@ -8,10 +8,13 @@ import { useState } from "react";
 import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
 import SmartphoneForList from "@/domain/entities/SmartphoneForList";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
+import { useMessages } from "@/ui/hooks/useMessages";
 
 const SmartphoneDetail = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();
   const { addNewSmartphoneToCart } = useShoppingCart();
+
+  const messages = useMessages();
 
   const { id, storageOptions, colorOptions, name, basePrice, similarProducts } =
     smartphoneDetail;
@@ -38,17 +41,17 @@ const SmartphoneDetail = () => {
               }}
             />
           ) : (
-            "Image not available"
+            messages("userMessage.imageNotAvailable")
           )}
         </div>
         <span className={styles.smartphoneDetail__name}>{name}</span>
         <span className={styles.smartphoneDetail__basePrice}>
           {selectedStorageOption
             ? selectedStorageOption.price
-            : `From ${basePrice}`}
+            : messages("smartphoneDetail.priceFrom.label", { basePrice })}
         </span>
         <div className={styles.smartphoneDetail__storage}>
-          <span>Storage. How much space do you need?</span>
+          <span>{messages("smartphoneDetail.storage.label")}</span>
           <form className={styles.smartphoneDetail__storageForm}>
             {storageOptions?.map((option, i) => (
               <label
@@ -75,7 +78,7 @@ const SmartphoneDetail = () => {
           </form>
         </div>
         <div className={styles.smartphoneDetail__color}>
-          <span>Color. Pick your favourite</span>
+          <span>{messages("smartphoneDetail.color.label")}</span>
           <form className={styles.smartphoneDetail__colorForm}>
             {colorOptions?.map((option, i) => (
               <label
@@ -116,61 +119,61 @@ const SmartphoneDetail = () => {
             });
           }}
         >
-          Añadir
+          {messages("smartphoneDetail.addButton.label")}
         </button>
       </section>
       <section>
         <table border="1">
           <tbody>
             <tr>
-              <td>Brand</td>
+              <td>{messages("smartphoneDetail.specs.brand")}</td>
               <td>{smartphoneDetail.brand}</td>
             </tr>
             <tr>
-              <td>Name</td>
+              <td>{messages("smartphoneDetail.specs.name")}</td>
               <td>{smartphoneDetail.name}</td>
             </tr>
             <tr>
-              <td>Description</td>
+              <td>{messages("smartphoneDetail.specs.description")}</td>
               <td>{smartphoneDetail.description}</td>
             </tr>
             <tr>
-              <td>Screen</td>
+              <td>{messages("smartphoneDetail.specs.screen")}</td>
               <td>{smartphoneDetail.specs.screen}</td>
             </tr>
             <tr>
-              <td>Resolution</td>
+              <td>{messages("smartphoneDetail.specs.resolution")}</td>
               <td>{smartphoneDetail.specs.resolution}</td>
             </tr>
             <tr>
-              <td>Processor</td>
+              <td>{messages("smartphoneDetail.specs.processor")}</td>
               <td>{smartphoneDetail.specs.processor}</td>
             </tr>
             <tr>
-              <td>Main camera</td>
+              <td>{messages("smartphoneDetail.specs.mainCamera")}</td>
               <td>{smartphoneDetail.specs.mainCamera}</td>
             </tr>
             <tr>
-              <td>Selfie camera</td>
+              <td>{messages("smartphoneDetail.specs.selfieCamera")}</td>
               <td>{smartphoneDetail.specs.selfieCamera}</td>
             </tr>
             <tr>
-              <td>Battery</td>
+              <td>{messages("smartphoneDetail.specs.battery")}</td>
               <td>{smartphoneDetail.specs.battery}</td>
             </tr>
             <tr>
-              <td>OS</td>
+              <td>{messages("smartphoneDetail.specs.os")}</td>
               <td>{smartphoneDetail.specs.os}</td>
             </tr>
             <tr>
-              <td>Screen refresh rate</td>
+              <td>{messages("smartphoneDetail.specs.screenRefreshRate")}</td>
               <td>{smartphoneDetail.specs.screenRefreshRate}</td>
             </tr>
           </tbody>
         </table>
       </section>
       <section className={styles.smartphoneDetail__similarItems}>
-        <h2>Similar items</h2>
+        <h2>{messages("smartphoneDetail.similarItems.title")}</h2>
         <div className={styles.smartphoneDetail__similarItemsCarousel}>
           {similarProducts
             ?.map((smartphone) => SmartphoneForList(smartphone).create())

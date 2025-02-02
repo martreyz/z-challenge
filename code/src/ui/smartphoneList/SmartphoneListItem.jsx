@@ -4,8 +4,11 @@ import styles from "@/styles/smartphoneList.module.css";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMessages } from "@/ui/hooks/useMessages";
 
 const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
+  const messages = useMessages();
+
   return (
     <ul className={styles.smartphoneItem}>
       <Link
@@ -26,7 +29,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
               }}
             />
           ) : (
-            "Image not available"
+            messages("userMessage.imageNotAvailable")
           )}
         </div>
         <div>

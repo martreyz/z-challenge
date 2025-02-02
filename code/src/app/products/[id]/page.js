@@ -9,7 +9,6 @@ import Header from "@/ui/header/Header";
 export default async function Home({ params }) {
   const { id } = await params;
 
-  console.log(id, "id en page");
   return (
     <ShoppingCartProvider>
       <SmartphoneDetailProvider id={id}>
