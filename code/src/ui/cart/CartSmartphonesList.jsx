@@ -8,8 +8,9 @@ const CartSmartphonesList = ({ cartSmartphonesList }) => {
   return (
     <ul className={styles.cartSmartphonesList}>
       {cartSmartphonesList.map(
-        ({ name, id, color, storage, price, imageUrl }, i) => (
+        ({ name, id, color, storage, price, imageUrl, cartId }, i) => (
           <CartSmartphonesListItem
+            cartId={cartId}
             id={id}
             key={id + i}
             name={name}

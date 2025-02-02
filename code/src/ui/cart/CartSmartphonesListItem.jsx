@@ -12,6 +12,7 @@ const CartSmartphonesListItem = ({
   color,
   price,
   imageUrl,
+  cartId,
 }) => {
   const { removeSmartphoneFromCart } = useShoppingCart();
 
@@ -36,7 +37,7 @@ const CartSmartphonesListItem = ({
         </p>
         <p>{price}</p>
         <button
-          onClick={() => removeSmartphoneFromCart(id)}
+          onClick={() => removeSmartphoneFromCart(cartId)}
           className={styles.cartSmartphonesListItem__removeButton}
         >
           Eliminar

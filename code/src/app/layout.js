@@ -1,5 +1,4 @@
 import "../styles/main.css";
-import HeaderWithShoppingCartProvider from "@/ui/header/HeaderWithProvider";
 
 export const metadata = {
   title: "Next.js",
@@ -10,7 +9,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <HeaderWithShoppingCartProvider />
         <main>{children}</main>
       </body>
     </html>

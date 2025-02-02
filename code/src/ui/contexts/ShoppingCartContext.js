@@ -5,32 +5,33 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
-  const [cartSmartphonesList, setCartSmartphonesList] = useState([]);
+  const [cartSmartphonesList, setCartSmartphonesList] = useState(
+    JSON.parse(localStorage.getItem("cartSmartphones")) || []
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedCart =
-      JSON.parse(localStorage.getItem("cartSmartphones")) || [];
-    setCartSmartphonesList(storedCart);
+    localStorage.setItem(
+      "cartSmartphones",
+      JSON.stringify(cartSmartphonesList)
+    );
     setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (cartSmartphonesList.length > 0) {
-      localStorage.setItem(
-        "cartSmartphones",
-        JSON.stringify(cartSmartphonesList)
-      );
-    }
   }, [cartSmartphonesList]);
 
   const addNewSmartphoneToCart = (newSmartphone) => {
-    setCartSmartphonesList((prev) => [...prev, newSmartphone]);
+    console.log(newSmartphone);
+    setCartSmartphonesList((prev) => [
+      ...prev,
+      {
+        ...newSmartphone,
+        cartId: newSmartphone.id + cartSmartphonesList.length,
+      },
+    ]);
   };
 
   const removeSmartphoneFromCart = (idToRemove) => {
     const newCartList = cartSmartphonesList.filter(
-      ({ id }) => id !== idToRemove
+      ({ cartId }) => cartId !== idToRemove
     );
     setCartSmartphonesList(newCartList);
   };
@@ -43,7 +44,6 @@ export const ShoppingCartProvider = ({ children }) => {
     <ShoppingCartContext.Provider
       value={{
         cartSmartphonesList,
-        cartSmartphonesListLength: cartSmartphonesList.length || 0,
         addNewSmartphoneToCart,
         removeSmartphoneFromCart,
       }}
