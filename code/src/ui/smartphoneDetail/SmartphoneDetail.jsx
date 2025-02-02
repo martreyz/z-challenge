@@ -5,9 +5,9 @@ import styles from "@/styles/smartphoneDetail.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import SmartphoneItem from "../smartphoneList/SmartphoneListItem";
+import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
 import SmartphoneForList from "@/domain/entities/SmartphoneForList";
-import { useShoppingCart } from "../contexts/ShoppingCartContext";
+import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const SmartphoneDetail = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();

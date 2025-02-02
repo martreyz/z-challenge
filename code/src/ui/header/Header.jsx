@@ -7,7 +7,7 @@ import styles from "@/styles/header.module.css";
 
 import { useState, useEffect } from "react";
 
-import { useShoppingCart } from "../contexts/ShoppingCartContext";
+import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const Header = () => {
   const { cartSmartphonesList } = useShoppingCart();

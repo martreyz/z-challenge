@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import styles from "@/styles/cartSmartphonesListItem.module.css";
-import { useShoppingCart } from "../contexts/ShoppingCartContext";
+import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const CartSmartphonesListItem = ({
   id,

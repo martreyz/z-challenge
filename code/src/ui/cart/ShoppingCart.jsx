@@ -4,8 +4,7 @@ import CartButtons from "@/ui/cart/CartButtons";
 import CartSmartphonesList from "@/ui/cart/CartSmartphonesList";
 
 import styles from "@/styles/shoppingCart.module.css";
-import { useShoppingCart } from "../contexts/ShoppingCartContext";
-import Header from "../header/Header";
+import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const ShoppingCart = () => {
   const { cartSmartphonesList } = useShoppingCart();
