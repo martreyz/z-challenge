@@ -5,16 +5,17 @@ import CartSmartphonesList from "@/ui/cart/CartSmartphonesList";
 
 import styles from "@/styles/shoppingCart.module.css";
 import { useShoppingCart } from "../contexts/ShoppingCartContext";
+import Header from "../header/Header";
 
 const ShoppingCart = () => {
   const { cartSmartphonesList } = useShoppingCart();
 
   return (
-    <main className={styles.shoppingCart}>
+    <section className={styles.shoppingCart}>
       <h2>Cart ({cartSmartphonesList.length})</h2>
       <CartSmartphonesList cartSmartphonesList={cartSmartphonesList} />
       <CartButtons cartSmartphonesQuantity={cartSmartphonesList.length} />
-    </main>
+    </section>
   );
 };
 
