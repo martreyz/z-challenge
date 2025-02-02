@@ -5,16 +5,22 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
-  const [cartSmartphonesList, setCartSmartphonesList] = useState(
-    JSON.parse(localStorage.getItem("cartSmartphones")) || []
-  );
+  const [cartSmartphonesList, setCartSmartphonesList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem(
-      "cartSmartphones",
-      JSON.stringify(cartSmartphonesList)
+    setCartSmartphonesList(
+      JSON.parse(localStorage.getItem("cartSmartphones")) || []
     );
+  }, []);
+
+  useEffect(() => {
+    if (cartSmartphonesList.length > 0) {
+      localStorage.setItem(
+        "cartSmartphones",
+        JSON.stringify(cartSmartphonesList)
+      );
+    }
     setLoading(false);
   }, [cartSmartphonesList]);
 
@@ -33,6 +39,8 @@ export const ShoppingCartProvider = ({ children }) => {
     const newCartList = cartSmartphonesList.filter(
       ({ cartId }) => cartId !== idToRemove
     );
+    if (newCartList.length === 0) localStorage.removeItem("cartSmartphones");
+
     setCartSmartphonesList(newCartList);
   };
 
