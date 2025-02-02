@@ -10,6 +10,7 @@ const useSmartphoneSearcher = (updateSmartphoneListData) => {
   useEffect(() => {
     updateSmartphoneListData(searchCriteria);
   }, [searchCriteria]);
+
   return { searchCriteria, handleSearchCriteriaChange };
 };
 

@@ -32,6 +32,14 @@ const eslintConfig = [
       prettier: prettierPlugin,
       "jsx-a11y": jsxA11yPlugin,
     },
+    settings: {
+      "import/resolver": {
+        alias: {
+          map: [["@", "./src"]],
+          extensions: [".js", ".jsx"],
+        },
+      },
+    },
     rules: {
       "import/no-unresolved": "error",
       "import/no-extraneous-dependencies": "error",
@@ -69,7 +77,7 @@ const eslintConfig = [
 
       // Prettier Rules
       "prettier/prettier": "error",
-      "linebreak-style": ["error", "any"],
+      "linebreak-style": ["error", "unix"],
     },
   },
 ];

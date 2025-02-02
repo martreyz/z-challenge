@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const SmartphoneDetailContext = createContext();
 
@@ -8,10 +8,14 @@ export const useSmartphoneDetailContext = () =>
   useContext(SmartphoneDetailContext);
 
 export const SmartphoneDetailProvider = ({ id, children }) => {
+  console.log("provider", id);
   const [loading, setLoading] = useState(true);
 
   const updateSmartphoneDetailData = async (id) => {
-    if (!id) return;
+    console.log("en el update", id);
+    if (!id) {
+      return;
+    }
 
     const smartphoneDetailResponse = await fetch(`/api/products/${id}`);
     const smartphoneDetail = await smartphoneDetailResponse.json();
@@ -22,6 +26,7 @@ export const SmartphoneDetailProvider = ({ id, children }) => {
   const [smartphoneDetail, setSmartphoneDetail] = useState({});
 
   useEffect(() => {
+    console.log(id, "useEffect");
     updateSmartphoneDetailData(id);
   }, [id]);
 

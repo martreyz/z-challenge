@@ -6,7 +6,6 @@ import styles from "@/styles/cartSmartphonesListItem.module.css";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 
 const CartSmartphonesListItem = ({
-  id,
   name,
   storage,
   color,

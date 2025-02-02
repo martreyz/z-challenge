@@ -1,7 +1,7 @@
-export const dynamic = "force-dynamic";
-
 import { getSmartphoneById } from "@/app/usecases/getSmartphoneById";
 import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(req, { params }) {
   await params;

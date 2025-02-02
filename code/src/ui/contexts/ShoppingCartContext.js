@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const ShoppingCartContext = createContext();
 
@@ -38,7 +38,9 @@ export const ShoppingCartProvider = ({ children }) => {
     const newCartList = cartSmartphonesList.filter(
       ({ cartId }) => cartId !== idToRemove
     );
-    if (newCartList.length === 0) localStorage.removeItem("cartSmartphones");
+    if (newCartList.length === 0) {
+      localStorage.removeItem("cartSmartphones");
+    }
 
     setCartSmartphonesList(newCartList);
   };
