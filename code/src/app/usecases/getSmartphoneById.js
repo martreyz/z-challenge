@@ -1,5 +1,5 @@
 import SmartphoneForDetail from "@/domain/entities/SmartphoneForDetail";
-import { fetchSmartphoneDetailById } from "@/infra/API/smartphoneById";
+import { fetchSmartphoneDetailById } from "@/infra/APIFiles/smartphoneById";
 
 export const getSmartphoneById = async (id) => {
   const data = await fetchSmartphoneDetailById(id);

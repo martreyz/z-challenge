@@ -1,5 +1,5 @@
 import SmartphoneForList from "@/domain/entities/SmartphoneForList";
-import { fetchSmartphoneList } from "@/infra/API/smartphones";
+import { fetchSmartphoneList } from "@/infra/APIFiles/smartphones";
 
 export const getSmartphones = async (searchQuery) => {
   const data = await fetchSmartphoneList(searchQuery);
