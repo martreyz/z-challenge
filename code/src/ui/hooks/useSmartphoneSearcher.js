@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useSmartphoneSearcher = (updateSmartphoneListData) => {
+export const useSmartphoneSearcher = (updateSmartphoneListData) => {
   const [searchCriteria, setSearchCriteria] = useState(undefined);
 
   const handleSearchCriteriaChange = (newSearchCriteria) => {
@@ -13,5 +13,3 @@ const useSmartphoneSearcher = (updateSmartphoneListData) => {
 
   return { searchCriteria, handleSearchCriteriaChange };
 };
-
-export default useSmartphoneSearcher;
