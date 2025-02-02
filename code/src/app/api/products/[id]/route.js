@@ -14,6 +14,7 @@ export async function GET(req, { params }) {
   }
 
   const { id } = await params;
+  console.log(id);
   const smartphoneDetail = await getSmartphoneById(id);
   return NextResponse.json(smartphoneDetail);
 }
