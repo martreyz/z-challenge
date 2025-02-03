@@ -29,7 +29,7 @@ export const ShoppingCartProvider = ({ children }) => {
       ...prev,
       {
         ...newSmartphone,
-        cartId: newSmartphone.id + cartSmartphonesList.length,
+        cartId: `${newSmartphone.id}-${Date.now()}`,
       },
     ]);
   };
