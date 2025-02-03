@@ -1,14 +1,21 @@
+"use client";
+
 export const useMessages = () => {
-  return (key, params = {}) => buildMessage(params)[key] || key;
+  return (key, params = {}) => {
+    const message = buildMessage(params)[key];
+    if (!message) {
+      console.warn(`Key "${key}" not found in messages.`);
+      return key;
+    }
+    return message;
+  };
 };
 
-const buildMessage = (
-  { numberOfResults, basePrice, cartItems } = {
-    numberOfResults: undefined,
-    basePrice: undefined,
-    cartItems: undefined,
-  }
-) => {
+const buildMessage = ({
+  numberOfResults = 0,
+  basePrice = "0 EUR",
+  cartItems = 0,
+} = {}) => {
   return {
     "searcher.input.helper": `${numberOfResults} results`,
     "searcher.input.placeholder": "Search for a smartphone...",
