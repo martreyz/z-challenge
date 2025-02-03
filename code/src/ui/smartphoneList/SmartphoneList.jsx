@@ -1,7 +1,7 @@
 "use client";
 
 import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
-import styles from "@/styles/smartphoneList.module.css";
+import styles from "@/styles/smartphoneListModules/smartphoneList.module.css";
 
 import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
 

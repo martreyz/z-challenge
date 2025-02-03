@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/smartphoneList.module.css";
+import styles from "@/styles/smartphoneListModules/smartphoneList.module.css";
 
 import Image from "next/image";
 import Link from "next/link";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useSmartphoneDetailContext } from "@/ui/contexts/SmartphoneDetailContext";
-import styles from "@/styles/smartphoneDetail.module.css";
+import styles from "@/styles/smartphoneDetailModules/smartphoneDetail.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
