@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
     );
   }
 
-  const { id } = params;
+  const { id } = await params;
 
   try {
     const smartphoneDetail = await getSmartphoneById(id);
