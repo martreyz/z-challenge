@@ -7,9 +7,24 @@ const port = 3001;
 app.get("/products", (req, res) => {
   const apiKey = req.headers["x-api-key"];
   const limit = parseInt(req.query.limit);
+  const search = req.query.search?.toLowerCase();
+
   verifyAPIKey(res, apiKey);
 
-  res.status(200).json(products.slice(0, limit));
+  let filteredProducts = products;
+  if (search) {
+    filteredProducts = products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(search) ||
+        product.brand.toLowerCase().includes(search)
+    );
+  }
+
+  const limitedProducts = limit
+    ? filteredProducts.slice(0, limit)
+    : filteredProducts;
+
+  res.status(200).json(limitedProducts);
 });
 
 app.get("/products/:id", (req, res) => {
