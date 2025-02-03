@@ -1,3 +1,42 @@
+:root {
+  /* Colors */
+  --color-white: white;
+  --color-black: black;
+  --color-red: red;
+  --color-light-gray: lightgray;
+
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 15px;
+  --spacing-large: 20px;
+  --spacing-xlarge: 24px;
+  --spacing-xxlarge: 40px;
+
+  /* Font Sizes */
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 16px;
+  --font-size-xlarge: 20px;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+
+  /* Line Heights */
+  --line-height-small: 14.51px;
+  --line-height-medium: 16px;
+  --line-height-large: 16.93px;
+  --line-height-xlarge: 24.18px;
+
+  /* Text */
+  --text-transform-uppercase: uppercase;
+
+  /* Z-Index */
+  --z-index-high: 2;
+  --z-index-medium: 1;
+  --z-index-low: 0;
+  --z-index-negative: -1;
+}
+
 /* CSS Reset: */
 body {
   width: 100%;
