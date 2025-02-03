@@ -15,6 +15,7 @@ const buildMessage = ({
   numberOfResults = 0,
   basePrice = "0 EUR",
   cartItems = 0,
+  total = 0,
 } = {}) => {
   return {
     "searcher.input.helper": `${numberOfResults} results`,
@@ -40,7 +41,7 @@ const buildMessage = ({
     "cart.item.removeButton.label": "Remove",
     "cart.backButton.label": "Continue shopping",
     "cart.payButton.label": "Pay",
-    "cart.total.label": "Total",
+    "cart.total.label": `Total ${total}`,
     "userMessage.imageNotAvailable": "Image not available",
   };
 };

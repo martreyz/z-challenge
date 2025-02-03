@@ -4,4 +4,18 @@
   justify-content: flex-start;
   height: 100%;
   overflow-y: scroll;
+  flex-grow: 1;
+}
+
+.cartSmartphones {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartSmartphonesTotalPrice {
+  padding: 20px;
+  position: sticky;
+  background-color: white;
+  bottom: 50px;
+  margin: 0;
 }
