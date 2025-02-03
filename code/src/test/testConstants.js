@@ -113,3 +113,24 @@ export const mockSmartphoneDetail = {
     },
   ],
 };
+
+export const mockCartSmartphones = [
+  {
+    id: "testIdCart1",
+    name: "testNameCart1",
+    imageUrl: "/testImageUrlCart1",
+    color: "testColorCart1",
+    storage: "testStorageCart1",
+    price: "1000 EUR",
+    cartId: "testCartId1",
+  },
+  {
+    id: "testIdCart2",
+    name: "testNameCart2",
+    imageUrl: "/testImageUrlCart2",
+    color: "testColorCart2",
+    storage: "testStorageCart2",
+    price: "2000 EUR",
+    cartId: "testCartId2",
+  },
+];
