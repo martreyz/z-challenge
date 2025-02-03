@@ -14,7 +14,7 @@ const SmartphoneDetailShoppingInfo = () => {
 
   const messages = useMessages();
 
-  const { id, storageOptions, colorOptions, name, basePrice, similarProducts } =
+  const { id, storageOptions, colorOptions, name, basePrice } =
     smartphoneDetail;
 
   const [selectedStorageOption, setSelectedStorageOption] = useState(undefined);
@@ -29,7 +29,7 @@ const SmartphoneDetailShoppingInfo = () => {
         {selectedColorOption?.imageUrl ? (
           <Image
             src={selectedColorOption.imageUrl}
-            alt={`${name} in color ${colorOptions[0]?.name}`}
+            alt={`${name} in color ${selectedColorOption?.name}`}
             fill
             style={{
               objectFit: "scale-down",
@@ -93,6 +93,7 @@ const SmartphoneDetailShoppingInfo = () => {
                 className={styles.smartphoneDetail__colorInput}
                 type="radio"
                 name={option.name}
+                aria-label={option.name}
                 value={option.name}
                 checked={selectedStorageOption?.name === option.name}
                 onChange={() => setSelectedColorOption(option)}
