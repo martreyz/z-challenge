@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/smartphoneDetail.module.css";
+import styles from "@/styles/smartphoneDetailModules/smartphoneDetail.module.css";
 
 import { useMessages } from "@/ui/hooks/useMessages";
 import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";

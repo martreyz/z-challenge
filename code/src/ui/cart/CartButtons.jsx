@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/cartButtons.module.css";
+import styles from "@/styles/cartModules/cartButtons.module.css";
 
 import Link from "next/link";
 import { useMessages } from "../hooks/useMessages";

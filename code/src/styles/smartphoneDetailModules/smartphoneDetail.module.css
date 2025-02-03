@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 80%;
-  padding: 15px;
+  padding: var(--spacing-medium);
 }
 
 .smartphoneDetail__shoppingInfo {
@@ -14,22 +14,22 @@
   position: relative;
   width: 100%;
   height: 273px;
-  z-index: 0;
+  z-index: var(--z-index-low);
 }
 
 .smartphoneDetail__name {
-  font-size: 20px;
-  line-height: 24.18px;
-  font-weight: 300;
-  text-transform: uppercase;
-  margin-top: 30px;
+  font-size: var(--font-size-xlarge);
+  line-height: var(--line-height-xlarge);
+  font-weight: var(--font-weight-light);
+  text-transform: var(--text-transform-uppercase);
+  margin-top: var(--spacing-xxlarge);
 }
 
 .smartphoneDetail__basePrice {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 16.93px;
-  margin-top: 15px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-large);
+  margin-top: var(--spacing-medium);
 }
 
 .smartphoneDetail__storage {
@@ -78,20 +78,19 @@
 
 .smartphoneDetail__addButton {
   width: 100%;
-  padding: 15px 0px;
-  margin: 40px 0;
-  color: white;
-  background-color: black;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 16px;
-  letter-spacing: 0.08em;
+  padding: var(--spacing-medium) 0;
+  margin: var(--spacing-xxlarge) 0;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-medium);
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--text-transform-uppercase);
 }
 
 .smartphoneDetail__addButton:disabled {
-  background-color: lightgray;
+  background-color: var(--color-light-gray);
 }
 
 .smartphoneDetail__similarItemsCarousel {

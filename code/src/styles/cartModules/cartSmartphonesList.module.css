@@ -15,9 +15,9 @@
 }
 
 .cartSmartphonesTotalPrice {
-  padding: 20px;
+  padding: var(--spacing-large);
   position: sticky;
-  background-color: white;
-  bottom: 50px;
+  background-color: var(--color-white);
+  bottom: var(--spacing-xxlarge);
   margin: 0;
 }

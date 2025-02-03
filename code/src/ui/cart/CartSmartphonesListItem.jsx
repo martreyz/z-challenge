@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import styles from "@/styles/cartSmartphonesListItem.module.css";
+import styles from "@/styles/cartModules/cartSmartphonesListItem.module.css";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import { useMessages } from "@/ui/hooks/useMessages";
 

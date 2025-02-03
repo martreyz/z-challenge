@@ -3,7 +3,7 @@
 import CartButtons from "@/ui/cart/CartButtons";
 import CartSmartphonesList from "@/ui/cart/CartSmartphonesList";
 
-import styles from "@/styles/shoppingCart.module.css";
+import styles from "@/styles/cartModules/shoppingCart.module.css";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import { useMessages } from "@/ui/hooks/useMessages";
 

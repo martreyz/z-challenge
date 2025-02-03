@@ -3,7 +3,7 @@
 import { useMessages } from "@/ui/hooks/useMessages";
 import CartSmartphonesListItem from "./CartSmartphonesListItem";
 
-import styles from "@/styles/cartSmartphonesList.module.css";
+import styles from "@/styles/cartModules/cartSmartphonesList.module.css";
 
 const getAndFormatTotalPrice = (cartSmartphonesList) =>
   `${cartSmartphonesList.reduce((acc, smartphone) => {

@@ -1,9 +1,9 @@
 "use client";
 
-import styles from "@/styles/searcher.module.css";
+import styles from "@/styles/smartphoneListModules/searcher.module.css";
 import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
 import { useSmartphoneSearcher } from "@/ui/hooks/useSmartphoneSearcher";
-import { useMessages } from "../hooks/useMessages";
+import { useMessages } from "@/ui/hooks/useMessages";
 
 const Searcher = () => {
   const { numberOfResults, updateSmartphoneListData } =
