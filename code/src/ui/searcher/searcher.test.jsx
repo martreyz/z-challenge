@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import Searcher from "@/ui/searcher/Searcher";
 import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
-import { useMessages } from "@/ui/hooks/useMessages";
 import { useSmartphoneSearcher } from "@/ui/hooks/useSmartphoneSearcher";
 
 const mockSmartphoneListContext = {
@@ -14,10 +13,6 @@ jest.mock("../contexts/SmartphoneListContext", () => ({
   useSmartphoneListContext: jest.fn(),
 }));
 
-jest.mock("../hooks/useMessages", () => ({
-  useMessages: jest.fn(),
-}));
-
 const mockHandleSearchCriteriaChange = jest.fn();
 jest.mock("../hooks/useSmartphoneSearcher", () => ({
   useSmartphoneSearcher: jest.fn(),
@@ -26,7 +21,6 @@ jest.mock("../hooks/useSmartphoneSearcher", () => ({
 describe("Searcher component", () => {
   beforeEach(() => {
     useSmartphoneListContext.mockReturnValue(mockSmartphoneListContext);
-    useMessages.mockReturnValue((key) => key);
     useSmartphoneSearcher.mockReturnValue({
       handleSearchCriteriaChange: mockHandleSearchCriteriaChange,
     });

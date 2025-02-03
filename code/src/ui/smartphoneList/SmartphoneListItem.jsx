@@ -12,6 +12,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   return (
     <ul className={styles.smartphoneItem}>
       <Link
+        aria-label="Redirect to product page"
         prefetch={false}
         href={`/products/${id}`}
         className={styles.smartphoneItem__clickable}
@@ -20,7 +21,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
           {imageUrl ? (
             <Image
               src={imageUrl}
-              alt="Logo"
+              alt={`Image of ${brand} ${name}`}
               fill
               style={{
                 objectFit: "scale-down",
