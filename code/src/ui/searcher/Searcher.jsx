@@ -2,7 +2,8 @@
 
 import styles from "@/styles/searcher.module.css";
 import { useSmartphoneListContext } from "@/ui/contexts/SmartphoneListContext";
-import useSmartphoneSearcher from "@/ui/hooks/useSmartphoneSearcher";
+import { useSmartphoneSearcher } from "@/ui/hooks/useSmartphoneSearcher";
+import { useMessages } from "../hooks/useMessages";
 
 const Searcher = () => {
   const { numberOfResults, updateSmartphoneListData } =
@@ -10,6 +11,8 @@ const Searcher = () => {
   const { searchCriteria, handleSearchCriteriaChange } = useSmartphoneSearcher(
     updateSmartphoneListData
   );
+
+  const messages = useMessages();
 
   return (
     <section className={styles.searcher}>
@@ -19,11 +22,12 @@ const Searcher = () => {
           value={searchCriteria}
           onChange={(ev) => handleSearchCriteriaChange(ev.currentTarget.value)}
           type="text"
-          placeholder="Search for a smartphone..."
+          placeholder={messages("searcher.input.placeholder")}
         />
-        <button type="submit">Search</button>
       </form>
-      <p className={styles.resultsCounter}>{numberOfResults} results</p>
+      <p className={styles.resultsCounter}>
+        {messages("searcher.input.helper", { numberOfResults })}
+      </p>
     </section>
   );
 };

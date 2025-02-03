@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import styles from "@/styles/cartSmartphonesListItem.module.css";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
+import { useMessages } from "@/ui/hooks/useMessages";
 
 const CartSmartphonesListItem = ({
   name,
@@ -14,6 +15,7 @@ const CartSmartphonesListItem = ({
   cartId,
 }) => {
   const { removeSmartphoneFromCart } = useShoppingCart();
+  const messages = useMessages();
 
   return (
     <li className={styles.cartSmartphonesListItem}>
@@ -39,7 +41,7 @@ const CartSmartphonesListItem = ({
           onClick={() => removeSmartphoneFromCart(cartId)}
           className={styles.cartSmartphonesListItem__removeButton}
         >
-          Eliminar
+          {messages("cart.item.removeButton.label")}
         </button>
       </div>
     </li>

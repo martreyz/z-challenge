@@ -4,11 +4,15 @@ import styles from "@/styles/smartphoneList.module.css";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMessages } from "@/ui/hooks/useMessages";
 
 const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
+  const messages = useMessages();
+
   return (
     <ul className={styles.smartphoneItem}>
       <Link
+        aria-label="Redirect to product page"
         prefetch={false}
         href={`/products/${id}`}
         className={styles.smartphoneItem__clickable}
@@ -17,7 +21,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
           {imageUrl ? (
             <Image
               src={imageUrl}
-              alt="Logo"
+              alt={`Image of ${brand} ${name}`}
               fill
               style={{
                 objectFit: "scale-down",
@@ -26,7 +30,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
               }}
             />
           ) : (
-            "Image not available"
+            messages("userMessage.imageNotAvailable")
           )}
         </div>
         <div>
