@@ -1,5 +1,3 @@
-import React from "react";
-
 import { SmartphoneListProvider } from "@/ui/contexts/SmartphoneListContext";
 import SmartphoneList from "@/ui/smartphoneList/SmartphoneList";
 import Searcher from "@/ui/searcher/Searcher";
