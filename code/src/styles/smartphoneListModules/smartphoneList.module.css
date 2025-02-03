@@ -1,8 +1,23 @@
 .smartphoneList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-medium);
   width: 100%;
   padding: 0 var(--spacing-xlarge);
+  justify-items: start;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .smartphoneList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .smartphoneList {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .smartphoneItem {
@@ -13,10 +28,35 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 5%;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-black);
+  transition: color 2s ease;
+}
+
+.smartphoneItem::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--color-black);
+  z-index: 0;
+  transition: height 2s ease;
+}
+
+.smartphoneItem:hover::before {
+  height: 100%;
 }
 
 .smartphoneItem:hover {
-  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.smartphoneItem > * {
+  position: relative;
+  z-index: 1;
 }
 
 .smartphoneItem__brand {
