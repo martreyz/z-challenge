@@ -5,12 +5,10 @@ import styles from "@/styles/smartphoneDetail.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import SmartphoneItem from "@/ui/smartphoneList/SmartphoneListItem";
-import SmartphoneForList from "@/domain/entities/SmartphoneForList";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import { useMessages } from "@/ui/hooks/useMessages";
 
-const SmartphoneDetail = () => {
+const SmartphoneDetailShoppingInfo = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();
   const { addNewSmartphoneToCart } = useShoppingCart();
 
@@ -124,4 +122,4 @@ const SmartphoneDetail = () => {
   );
 };
 
-export default SmartphoneDetail;
+export default SmartphoneDetailShoppingInfo;
