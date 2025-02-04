@@ -12,6 +12,8 @@
   - [Installation Steps](#installation-steps)
 - [API Integration](#api-integration)
 - [Deployment](#deployment)
+  - [Preview Deployment](#preview-deployment)
+  - [Production Deployment](#production-deployment)
 - [Testing](#testing)
 - [Future Improvements](#future-improvements)
 
@@ -137,7 +139,28 @@ npm run dev # Runs both Next.js and Express mock server
 --------
 ## Deployment
 
-- The project is deployed on **Vercel**, taking advantage of its seamless Next.js support.
+This project uses **Vercel** for deployment, which integrates with **GitHub** for continuous deployment. There are two types of deployments:
+
+### Preview Deployment
+To deploy a preview version of the project:
+
+1. Push your changes to any branch **other than `main`**.
+2. Once the push is made, **Vercel** will automatically create a preview deployment for that branch.
+3. You can view the deployment results in the **GitHub Actions** section of the corresponding Pull Request.
+
+Preview deployments are useful for testing changes in isolation before merging them into the `main` branch.
+
+### Production Deployment
+To deploy the project to **production**:
+
+1. Push your changes to the `main` branch.
+2. **Vercel** will automatically trigger a production deployment.
+3. You can view the deployment results in the **GitHub Actions** section of the corresponding Pull Request.
+
+Production deployments are the final, stable version of the project, and they will be accessible publicly via the live [URL](https://z-challenge.vercel.app/).
+
+### GitHub Actions for Deployment
+Both preview and production deployments are monitored through **GitHub Actions**. After pushing to a branch, you can check the **Actions** tab in the corresponding Pull Request for detailed deployment logs and status.
 
 --------
 ## Testing
