@@ -1,5 +1,3 @@
-"use client";
-
 export const useMessages = () => {
   return (key, params = {}) => {
     const message = buildMessage(params)[key];
@@ -11,7 +9,7 @@ export const useMessages = () => {
   };
 };
 
-const buildMessage = ({
+export const buildMessage = ({
   numberOfResults = 0,
   basePrice = "0 EUR",
   cartItems = 0,

@@ -41,7 +41,7 @@ const Header = () => {
               ? "/assets/bagIcon_filled.svg"
               : "/assets/bagIcon_outlined.svg"
           }
-          alt="Shopping cart"
+          alt={messages("ariaLabel.cartPage")}
           width={18}
           height={18}
         />
