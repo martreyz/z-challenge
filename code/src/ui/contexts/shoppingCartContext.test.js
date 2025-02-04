@@ -3,7 +3,6 @@ import {
   ShoppingCartProvider,
   useShoppingCart,
 } from "@/ui/contexts/ShoppingCartContext";
-import { useMessages } from "@/ui/hooks/useMessages";
 
 const setupLocalStorageMocks = () => {
   const localStorageMock = (() => {

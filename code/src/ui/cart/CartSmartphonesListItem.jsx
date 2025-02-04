@@ -41,7 +41,7 @@ const CartSmartphonesListItem = ({
         </p>
         <p>{price}</p>
         <button
-          tabindex="0"
+          tabIndex="0"
           onClick={() => removeSmartphoneFromCart(cartId)}
           className={styles.cartSmartphonesListItem__removeButton}
         >

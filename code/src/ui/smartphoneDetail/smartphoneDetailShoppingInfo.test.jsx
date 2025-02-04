@@ -4,6 +4,7 @@ import { useSmartphoneDetailContext } from "@/ui/contexts/SmartphoneDetailContex
 import { mockSmartphoneDetail } from "@/test/testConstants";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import SmartphoneDetailShoppingInfo from "@/ui/smartphoneDetail/SmartphoneDetailShoppingInfo";
+import { mockUseMessages } from "../../../jest.setup";
 
 const mockSmartphoneDetailContext = {
   smartphoneDetail: mockSmartphoneDetail,
@@ -33,7 +34,11 @@ describe("SmartphoneDetailShoppingInfo component", () => {
     expect(
       screen.getByText("smartphoneDetail.priceFrom.label")
     ).toBeInTheDocument();
-    expect(screen.getByAltText(`${name} in color ${colorOptions[0].name}`));
+    expect(mockUseMessages).toHaveBeenCalledWith(
+      "altText.smartphoneAndColorImage",
+      { name, color: colorOptions[0].name }
+    );
+    expect(screen.getByAltText("altText.smartphoneAndColorImage"));
   });
 
   it("should show all storage options", () => {
@@ -59,14 +64,18 @@ describe("SmartphoneDetailShoppingInfo component", () => {
 
     fireEvent.click(screen.getByRole("radio", { name: colorOptions[2].name }));
     expect(
-      screen.getByAltText(`${name} in color ${colorOptions[2].name}`)
+      screen.getByAltText("altText.smartphoneAndColorImage")
     ).toBeInTheDocument();
 
     const expectedUrlPart = encodeURIComponent(colorOptions[2].imageUrl);
     const regex = new RegExp(expectedUrlPart);
 
+    expect(mockUseMessages).toHaveBeenCalledWith(
+      "altText.smartphoneAndColorImage",
+      { name, color: colorOptions[2].name }
+    );
     expect(
-      screen.getByAltText(`${name} in color ${colorOptions[2].name}`)
+      screen.getByAltText("altText.smartphoneAndColorImage")
     ).toHaveAttribute("src", expect.stringMatching(regex));
   });
 
