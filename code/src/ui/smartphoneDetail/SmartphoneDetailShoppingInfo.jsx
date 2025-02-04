@@ -4,7 +4,7 @@ import { useSmartphoneDetailContext } from "@/ui/contexts/SmartphoneDetailContex
 import styles from "@/styles/smartphoneDetailModules/smartphoneDetail.module.css";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import { useMessages } from "@/ui/hooks/useMessages";
 
@@ -19,17 +19,22 @@ const SmartphoneDetailShoppingInfo = () => {
 
   const [selectedStorageOption, setSelectedStorageOption] = useState(undefined);
 
-  const [selectedColorOption, setSelectedColorOption] = useState(
-    colorOptions[0]
-  );
+  const [selectedColorOption, setSelectedColorOption] = useState(undefined);
+  const [imageToShow, setImageToShow] = useState(colorOptions[0].imageUrl);
+
+  useEffect(() => {
+    if (selectedColorOption) {
+      setImageToShow(selectedColorOption.imageUrl);
+    }
+  }, [selectedColorOption]);
 
   return (
     <section className={styles.smartphoneDetail__shoppingInfo}>
       <div className={styles.smartphoneDetail__imageWrapper}>
-        {selectedColorOption?.imageUrl ? (
+        {imageToShow ? (
           <Image
-            src={selectedColorOption.imageUrl}
-            alt={`${name} in color ${selectedColorOption?.name}`}
+            src={imageToShow}
+            alt={`${name} in color ${selectedColorOption?.name || colorOptions[0].name}`}
             fill
             style={{
               objectFit: "scale-down",
@@ -41,7 +46,7 @@ const SmartphoneDetailShoppingInfo = () => {
           messages("userMessage.imageNotAvailable")
         )}
       </div>
-      <div>
+      <div className={styles.smartphoneDetail__infoWrapper}>
         <span className={styles.smartphoneDetail__name}>{name}</span>
         <span className={styles.smartphoneDetail__basePrice}>
           {selectedStorageOption
@@ -105,7 +110,7 @@ const SmartphoneDetailShoppingInfo = () => {
           <span>{selectedColorOption?.name}</span>
         </div>
         <button
-          disabled={!selectedStorageOption}
+          disabled={!selectedStorageOption || !selectedColorOption}
           className={styles.smartphoneDetail__addButton}
           onClick={() => {
             addNewSmartphoneToCart({

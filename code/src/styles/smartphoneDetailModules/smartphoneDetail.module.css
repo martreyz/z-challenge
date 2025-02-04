@@ -28,6 +28,14 @@
   }
 }
 
+.smartphoneDetail__infoWrapper {
+  margin-top: 5%;
+}
+
+.smartphoneDetail__infoWrapper span {
+  display: block;
+}
+
 .smartphoneDetail__name {
   font-size: var(--font-size-xlarge);
   line-height: var(--line-height-xlarge);

@@ -69,4 +69,16 @@ describe("SmartphoneDetailShoppingInfo component", () => {
       screen.getByAltText(`${name} in color ${colorOptions[2].name}`)
     ).toHaveAttribute("src", expect.stringMatching(regex));
   });
+
+  it("should maintain addButton disabled until a storage and color are selected", () => {
+    render(<SmartphoneDetailShoppingInfo />);
+    const { colorOptions, storageOptions } = mockSmartphoneDetail;
+
+    expect(screen.getByText(/add/i)).toBeDisabled();
+
+    fireEvent.click(screen.getByRole("radio", { name: colorOptions[2].name }));
+    fireEvent.click(screen.getByText(storageOptions[0].capacity));
+
+    expect(screen.getByText(/add/i)).toBeEnabled();
+  });
 });
