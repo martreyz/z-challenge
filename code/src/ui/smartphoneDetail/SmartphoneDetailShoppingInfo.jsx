@@ -34,7 +34,10 @@ const SmartphoneDetailShoppingInfo = () => {
         {imageToShow ? (
           <Image
             src={imageToShow}
-            alt={`${name} in color ${selectedColorOption?.name || colorOptions[0].name}`}
+            alt={messages("altText.smartphoneAndColorImage", {
+              name,
+              color: selectedColorOption?.name || colorOptions[0].name,
+            })}
             fill
             style={{
               objectFit: "scale-down",
@@ -47,19 +50,25 @@ const SmartphoneDetailShoppingInfo = () => {
         )}
       </div>
       <div className={styles.smartphoneDetail__infoWrapper}>
-        <span className={styles.smartphoneDetail__name}>{name}</span>
-        <span className={styles.smartphoneDetail__basePrice}>
+        <h1 className={styles.smartphoneDetail__name}>{name}</h1>
+        <h2 className={styles.smartphoneDetail__basePrice}>
           {selectedStorageOption
             ? selectedStorageOption.price
             : messages("smartphoneDetail.priceFrom.label", { basePrice })}
-        </span>
-        <div className={styles.smartphoneDetail__storage}>
-          <span>{messages("smartphoneDetail.storage.label")}</span>
+        </h2>
+        <section className={styles.smartphoneDetail__storage}>
+          <h3>{messages("smartphoneDetail.storage.label")}</h3>
           <form className={styles.smartphoneDetail__storageForm}>
             {storageOptions?.map((option, i) => (
               <label
+                tabIndex={0}
                 className={styles.smartphoneDetail__storageLabel}
                 key={option.capacity + i}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setSelectedStorageOption(option);
+                  }
+                }}
                 style={{
                   "--dynamic-storageLabel-borderColor":
                     selectedStorageOption?.capacity === option.capacity
@@ -79,12 +88,13 @@ const SmartphoneDetailShoppingInfo = () => {
               </label>
             ))}
           </form>
-        </div>
-        <div className={styles.smartphoneDetail__color}>
-          <span>{messages("smartphoneDetail.color.label")}</span>
+        </section>
+        <section className={styles.smartphoneDetail__color}>
+          <h3>{messages("smartphoneDetail.color.label")}</h3>
           <form className={styles.smartphoneDetail__colorForm}>
             {colorOptions?.map((option, i) => (
               <label
+                tabIndex={0}
                 className={styles.smartphoneDetail__colorLabel}
                 key={option.name + i}
                 style={{
@@ -93,6 +103,11 @@ const SmartphoneDetailShoppingInfo = () => {
                     selectedColorOption?.name === option.name
                       ? "#000000"
                       : "#CCCCCC",
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setSelectedColorOption(option);
+                  }
                 }}
               >
                 <input
@@ -108,8 +123,9 @@ const SmartphoneDetailShoppingInfo = () => {
             ))}
           </form>
           <span>{selectedColorOption?.name}</span>
-        </div>
+        </section>
         <button
+          tabIndex={0}
           disabled={!selectedStorageOption || !selectedColorOption}
           className={styles.smartphoneDetail__addButton}
           onClick={() => {

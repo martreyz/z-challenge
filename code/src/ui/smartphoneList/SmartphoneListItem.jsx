@@ -10,9 +10,15 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   const messages = useMessages();
 
   return (
-    <ul className={styles.smartphoneItem}>
+    <li className={styles.smartphoneItem}>
       <Link
-        aria-label="Redirect to product page"
+        tabindex="0"
+        aria-label={messages("ariaLabel.detailPage", {
+          brand,
+          name,
+          basePrice,
+        })}
+        title={messages("ariaLabel.detailPage", { brand, name, basePrice })}
         prefetch={false}
         href={`/products/${id}`}
         className={styles.smartphoneItem__clickable}
@@ -21,7 +27,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
           {imageUrl ? (
             <Image
               src={imageUrl}
-              alt={`Image of ${brand} ${name}`}
+              alt={messages("altText.smartphoneAndBrandImage", { name, brand })}
               fill
               style={{
                 objectFit: "scale-down",
@@ -33,15 +39,15 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
             messages("userMessage.imageNotAvailable")
           )}
         </div>
-        <div>
-          <span className={styles.smartphoneItem__brand}>{brand}</span>
-          <span className={styles.smartphoneItem__device}>
+        <section>
+          <h2 className={styles.smartphoneItem__brand}>{brand}</h2>
+          <h3 className={styles.smartphoneItem__device}>
             <span>{name} </span>
             <span>{basePrice} </span>
-          </span>
-        </div>
+          </h3>
+        </section>
       </Link>
-    </ul>
+    </li>
   );
 };
 

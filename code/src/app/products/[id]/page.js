@@ -5,6 +5,7 @@ import Image from "next/image";
 import SmartphoneDetail from "@/ui/smartphoneDetail/SmartphoneDetail";
 import { ShoppingCartProvider } from "@/ui/contexts/ShoppingCartContext";
 import Header from "@/ui/header/Header";
+import { buildMessage } from "@/ui/hooks/useMessages";
 
 export default async function Home({ params }) {
   const { id } = await params;
@@ -14,17 +15,22 @@ export default async function Home({ params }) {
       <SmartphoneDetailProvider id={id}>
         <Header />
         <main>
-          <div className="smartphoneDetailPage__header">
-            <Link className="smartphoneDetail__backButton" href={"/"}>
+          <nav className="smartphoneDetailPage__header">
+            <Link
+              className="smartphoneDetail__backButton"
+              aria-label={buildMessage()["ariaLabel.homePage"]}
+              title={buildMessage()["ariaLabel.homePage"]}
+              href={"/"}
+            >
               <Image
                 src="/assets/chevron_left.svg"
-                alt="Chevron left Back button"
+                alt={buildMessage()["ariaLabel.homePage"]}
                 width={20}
                 height={20}
               />
               <span>Back</span>
             </Link>
-          </div>
+          </nav>
           <SmartphoneDetail />
         </main>
       </SmartphoneDetailProvider>

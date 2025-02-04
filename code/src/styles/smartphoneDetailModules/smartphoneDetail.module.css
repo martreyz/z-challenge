@@ -112,16 +112,30 @@
   background-color: var(--color-light-gray);
 }
 
-.smartphoneDetail__similarItemsCarousel {
-  display: grid;
+.smartphoneDetail__similarItems {
   width: 100%;
-  grid-template-columns: repeat(auto-fit, 300px);
-  grid-auto-flow: column;
   overflow-x: scroll;
 }
 
-.smartphoneDetail__similarItemsCarousel ul {
+.smartphoneDetail__similarItems h2 {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24.18px;
+  margin: 20px 0;
+  position: sticky;
+  left: 0px;
+}
+
+.smartphoneDetail__similarItemsCarousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-flow: column;
+}
+
+.smartphoneDetail__similarItemsCarousel li {
   width: 300px;
+  height: 380px;
+  margin-bottom: 30px;
 }
 
 .smartphoneDetailSpecsTable {

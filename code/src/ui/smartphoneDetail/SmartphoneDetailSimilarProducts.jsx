@@ -15,7 +15,10 @@ const SmartphoneDetailSimilarProducts = () => {
   return (
     <section className={styles.smartphoneDetail__similarItems}>
       <h2>{messages("smartphoneDetail.similarItems.title")}</h2>
-      <div className={styles.smartphoneDetail__similarItemsCarousel}>
+      <div
+        aria-live="polite"
+        className={styles.smartphoneDetail__similarItemsCarousel}
+      >
         {similarProducts
           ?.map((smartphone) => SmartphoneForList(smartphone).create())
           .map(({ id, brand, name, basePrice, imageUrl }, i) => (

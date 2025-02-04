@@ -1,5 +1,3 @@
-"use client";
-
 export const useMessages = () => {
   return (key, params = {}) => {
     const message = buildMessage(params)[key];
@@ -11,11 +9,14 @@ export const useMessages = () => {
   };
 };
 
-const buildMessage = ({
+export const buildMessage = ({
   numberOfResults = 0,
   basePrice = "0 EUR",
   cartItems = 0,
   total = 0,
+  name = "",
+  color = "",
+  brand = "",
 } = {}) => {
   return {
     "searcher.input.helper": `${numberOfResults} results`,
@@ -43,5 +44,12 @@ const buildMessage = ({
     "cart.payButton.label": "Pay",
     "cart.total.label": `Total ${total}`,
     "userMessage.imageNotAvailable": "Image not available",
+    "altText.smartphoneAndColorImage": `${name} in color ${color}`,
+    "altText.smartphoneAndBrandImage": `Image of ${brand} ${name}`,
+    "altText.logo": "Logo",
+    "ariaLabel.homePage": "Go to home page",
+    "ariaLabel.detailPage": `Go to detail page of ${brand} ${name}, price from ${basePrice}`,
+    "ariaLabel.cartPage": "Go to cart page",
+    "ariaLabel.searcher": "Search for a smartphone name or brand",
   };
 };
