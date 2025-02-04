@@ -13,9 +13,9 @@ const ShoppingCart = () => {
 
   return (
     <section className={styles.shoppingCart}>
-      <h2 className={styles.shoppingCart__title}>
+      <h1 className={styles.shoppingCart__title}>
         {messages("cart.title", { cartItems: cartSmartphonesList.length })}
-      </h2>
+      </h1>
       <CartSmartphonesList cartSmartphonesList={cartSmartphonesList} />
       <CartButtons cartSmartphonesQuantity={cartSmartphonesList.length} />
     </section>

@@ -35,13 +35,13 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
             messages("userMessage.imageNotAvailable")
           )}
         </div>
-        <div>
-          <span className={styles.smartphoneItem__brand}>{brand}</span>
-          <span className={styles.smartphoneItem__device}>
+        <section>
+          <h2 className={styles.smartphoneItem__brand}>{brand}</h2>
+          <h3 className={styles.smartphoneItem__device}>
             <span>{name} </span>
             <span>{basePrice} </span>
-          </span>
-        </div>
+          </h3>
+        </section>
       </Link>
     </li>
   );
