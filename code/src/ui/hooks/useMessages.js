@@ -16,6 +16,9 @@ const buildMessage = ({
   basePrice = "0 EUR",
   cartItems = 0,
   total = 0,
+  name = "",
+  color = "",
+  brand = "",
 } = {}) => {
   return {
     "searcher.input.helper": `${numberOfResults} results`,
@@ -43,5 +46,8 @@ const buildMessage = ({
     "cart.payButton.label": "Pay",
     "cart.total.label": `Total ${total}`,
     "userMessage.imageNotAvailable": "Image not available",
+    "altText.smartphoneAndColorImage": `${name} in color ${color}`,
+    "altText.smartphoneAndBrandImage": `Image of ${brand} ${name}`,
+    "altText.logo": "Logo",
   };
 };

@@ -34,7 +34,10 @@ const SmartphoneDetailShoppingInfo = () => {
         {imageToShow ? (
           <Image
             src={imageToShow}
-            alt={`${name} in color ${selectedColorOption?.name || colorOptions[0].name}`}
+            alt={messages("altText.smartphoneAndColorImage", {
+              name,
+              color: selectedColorOption?.name || colorOptions[0].name,
+            })}
             fill
             style={{
               objectFit: "scale-down",

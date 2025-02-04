@@ -22,7 +22,10 @@ const CartSmartphonesListItem = ({
       <div className={styles.cartSmartphonesListItem__imageWrapper}>
         <Image
           src={imageUrl}
-          alt={`${name} in color ${color}`}
+          alt={messages("altText.smartphoneAndColorImage", {
+            name,
+            color,
+          })}
           fill
           style={{
             objectFit: "scale-down",

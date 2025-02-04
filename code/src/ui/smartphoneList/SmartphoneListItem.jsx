@@ -21,7 +21,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
           {imageUrl ? (
             <Image
               src={imageUrl}
-              alt={`Image of ${brand} ${name}`}
+              alt={messages("altText.smartphoneAndBrandImage", { name, brand })}
               fill
               style={{
                 objectFit: "scale-down",
