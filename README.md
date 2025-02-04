@@ -1,6 +1,21 @@
 # **Mobile Store (z-challenge)**
 
 ----------
+## Table of Contents
+
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Setup & Installation](#setup--installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation Steps](#installation-steps)
+- [API Integration](#api-integration)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [Future Improvements](#future-improvements)
+
+----------
 ## Overview
 
 This project is a smartphone store built with **Next.js 15** and **React 19**, following **hexagonal architecture** principles. The goal is to create a modular and scalable application that separates concerns across different layers, making it maintainable and testable as well as keeping good practices and accessibility.
@@ -8,9 +23,7 @@ This project is a smartphone store built with **Next.js 15** and **React 19**, f
 ----------
 ## Tech Stack
 
-- **Frontend Framework:** Next.js 15
-
-- **UI Library:** React 19
+- **Frontend Framework:** Next.js 15, React 19
 
 - **Backend Server:** Express.js (only for local mock server)
 
