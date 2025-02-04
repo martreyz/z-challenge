@@ -14,7 +14,7 @@ export default async function Home({ params }) {
       <SmartphoneDetailProvider id={id}>
         <Header />
         <main>
-          <div className="smartphoneDetailPage__header">
+          <nav className="smartphoneDetailPage__header">
             <Link className="smartphoneDetail__backButton" href={"/"}>
               <Image
                 src="/assets/chevron_left.svg"
@@ -24,7 +24,7 @@ export default async function Home({ params }) {
               />
               <span>Back</span>
             </Link>
-          </div>
+          </nav>
           <SmartphoneDetail />
         </main>
       </SmartphoneDetailProvider>

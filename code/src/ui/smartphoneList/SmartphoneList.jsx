@@ -9,7 +9,7 @@ const SmartphoneList = () => {
   const { smartphoneList } = useSmartphoneListContext();
 
   return (
-    <section className={styles.smartphoneList}>
+    <ul className={styles.smartphoneList}>
       {smartphoneList.map(({ id, name, brand, basePrice, imageUrl }, i) => (
         <SmartphoneItem
           id={id}
@@ -20,7 +20,7 @@ const SmartphoneList = () => {
           imageUrl={imageUrl}
         />
       ))}
-    </section>
+    </ul>
   );
 };
 

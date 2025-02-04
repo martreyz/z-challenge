@@ -47,14 +47,14 @@ const SmartphoneDetailShoppingInfo = () => {
         )}
       </div>
       <div className={styles.smartphoneDetail__infoWrapper}>
-        <span className={styles.smartphoneDetail__name}>{name}</span>
-        <span className={styles.smartphoneDetail__basePrice}>
+        <h4 className={styles.smartphoneDetail__name}>{name}</h4>
+        <h5 className={styles.smartphoneDetail__basePrice}>
           {selectedStorageOption
             ? selectedStorageOption.price
             : messages("smartphoneDetail.priceFrom.label", { basePrice })}
-        </span>
-        <div className={styles.smartphoneDetail__storage}>
-          <span>{messages("smartphoneDetail.storage.label")}</span>
+        </h5>
+        <section className={styles.smartphoneDetail__storage}>
+          <h6>{messages("smartphoneDetail.storage.label")}</h6>
           <form className={styles.smartphoneDetail__storageForm}>
             {storageOptions?.map((option, i) => (
               <label
@@ -79,9 +79,9 @@ const SmartphoneDetailShoppingInfo = () => {
               </label>
             ))}
           </form>
-        </div>
-        <div className={styles.smartphoneDetail__color}>
-          <span>{messages("smartphoneDetail.color.label")}</span>
+        </section>
+        <section className={styles.smartphoneDetail__color}>
+          <h6>{messages("smartphoneDetail.color.label")}</h6>
           <form className={styles.smartphoneDetail__colorForm}>
             {colorOptions?.map((option, i) => (
               <label
@@ -108,7 +108,7 @@ const SmartphoneDetailShoppingInfo = () => {
             ))}
           </form>
           <span>{selectedColorOption?.name}</span>
-        </div>
+        </section>
         <button
           disabled={!selectedStorageOption || !selectedColorOption}
           className={styles.smartphoneDetail__addButton}

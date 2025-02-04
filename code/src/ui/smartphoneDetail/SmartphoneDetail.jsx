@@ -8,11 +8,11 @@ import SmartphoneDetailSimilarProducts from "./SmartphoneDetailSimilarProducts";
 
 const SmartphoneDetail = () => {
   return (
-    <div className={styles.smartphoneDetail}>
+    <section className={styles.smartphoneDetail}>
       <SmartphoneDetailShoppingInfo />
       <SmartphoneDetailSpecsTable />
       <SmartphoneDetailSimilarProducts />
-    </div>
+    </section>
   );
 };
 

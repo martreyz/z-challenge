@@ -10,7 +10,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   const messages = useMessages();
 
   return (
-    <ul className={styles.smartphoneItem}>
+    <li className={styles.smartphoneItem}>
       <Link
         aria-label="Redirect to product page"
         prefetch={false}
@@ -41,7 +41,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
           </span>
         </div>
       </Link>
-    </ul>
+    </li>
   );
 };
 
