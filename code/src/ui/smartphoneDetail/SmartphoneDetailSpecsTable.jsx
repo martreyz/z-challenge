@@ -3,14 +3,16 @@
 import { useSmartphoneDetailContext } from "@/ui/contexts/SmartphoneDetailContext";
 import { useMessages } from "@/ui/hooks/useMessages";
 
+import styles from "@/styles/smartphoneDetailModules/smartphoneDetail.module.css";
+
 const SmartphoneDetailSpecsTable = () => {
   const { smartphoneDetail } = useSmartphoneDetailContext();
   const messages = useMessages();
 
   return (
     <section>
-      <table border="1">
-        <tbody>
+      <table className={styles.smartphoneDetailSpecsTable} border={1}>
+        <tbody className={styles.smartphoneDetailSpecsTable__body}>
           <tr>
             <td>{messages("smartphoneDetail.specs.brand")}</td>
             <td>{smartphoneDetail.brand}</td>
