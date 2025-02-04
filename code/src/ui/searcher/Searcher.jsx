@@ -18,7 +18,7 @@ const Searcher = () => {
     <section className={styles.searcher}>
       <form className={styles.searcherForm}>
         <input
-          aria-labelledby={messages("ariaLabel.searcher")}
+          aria-label={messages("ariaLabel.searcher")}
           className={styles.searcherInput}
           value={searchCriteria}
           onChange={(ev) => handleSearchCriteriaChange(ev.currentTarget.value)}
