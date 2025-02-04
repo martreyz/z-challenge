@@ -1,0 +1,37 @@
+.cartSmartphonesList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-small);
+  justify-items: start;
+  align-items: start;
+  height: 100%;
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .cartSmartphonesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cartSmartphonesList {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.cartSmartphones {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cartSmartphonesTotalPrice {
+  padding: var(--spacing-large);
+  position: sticky;
+  background-color: var(--color-white);
+  bottom: var(--spacing-xxlarge);
+  margin: 0;
+}

@@ -1,0 +1,26 @@
+.searcher {
+  width: 100%;
+  padding: 0 var(--spacing-xlarge);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.searcherForm {
+  width: 100%;
+}
+
+.searcherInput {
+  border-bottom: 0.5px solid var(--color-black);
+  width: 100%;
+  padding: 0 0 8px 0;
+  font-size: var(--font-size-large);
+}
+
+.resultsCounter {
+  text-transform: var(--text-transform-uppercase);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-small);
+}

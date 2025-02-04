@@ -1,0 +1,5 @@
+/*Global CSS and CSS Reset*/
+@import "./globals.css";
+
+/*Pages CSS*/
+@import "./pages.css";
