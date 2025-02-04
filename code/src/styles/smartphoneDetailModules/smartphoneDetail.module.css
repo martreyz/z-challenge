@@ -17,6 +17,17 @@
   z-index: var(--z-index-low);
 }
 
+@media (min-width: 768px) {
+  .smartphoneDetail__imageWrapper {
+    width: 50%;
+    height: auto;
+  }
+
+  .smartphoneDetail__shoppingInfo {
+    flex-direction: row;
+  }
+}
+
 .smartphoneDetail__name {
   font-size: var(--font-size-xlarge);
   line-height: var(--line-height-xlarge);
@@ -95,6 +106,7 @@
 
 .smartphoneDetail__similarItemsCarousel {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(auto-fit, 300px);
   grid-auto-flow: column;
   overflow-x: scroll;
@@ -102,4 +114,23 @@
 
 .smartphoneDetail__similarItemsCarousel ul {
   width: 300px;
+}
+
+.smartphoneDetailSpecsTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.smartphoneDetailSpecsTable__body tr {
+  border-bottom: 1px solid black;
+  border-right: 0;
+  border-left: 0;
+}
+
+.smartphoneDetailSpecsTable__body tr td:first-child {
+  text-transform: uppercase;
+}
+
+.smartphoneDetailSpecsTable__body td {
+  padding: 15px;
 }

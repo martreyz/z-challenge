@@ -41,84 +41,86 @@ const SmartphoneDetailShoppingInfo = () => {
           messages("userMessage.imageNotAvailable")
         )}
       </div>
-      <span className={styles.smartphoneDetail__name}>{name}</span>
-      <span className={styles.smartphoneDetail__basePrice}>
-        {selectedStorageOption
-          ? selectedStorageOption.price
-          : messages("smartphoneDetail.priceFrom.label", { basePrice })}
-      </span>
-      <div className={styles.smartphoneDetail__storage}>
-        <span>{messages("smartphoneDetail.storage.label")}</span>
-        <form className={styles.smartphoneDetail__storageForm}>
-          {storageOptions?.map((option, i) => (
-            <label
-              className={styles.smartphoneDetail__storageLabel}
-              key={option.capacity + i}
-              style={{
-                "--dynamic-storageLabel-borderColor":
-                  selectedStorageOption?.capacity === option.capacity
-                    ? "#000000"
-                    : "#CCCCCC",
-              }}
-            >
-              <input
-                className={styles.smartphoneDetail__storageInput}
-                type="radio"
-                name={option.capacity}
-                value={option.capacity}
-                checked={selectedStorageOption?.capacity === option.capacity}
-                onChange={() => setSelectedStorageOption(option)}
-              />
-              {option.capacity}
-            </label>
-          ))}
-        </form>
+      <div>
+        <span className={styles.smartphoneDetail__name}>{name}</span>
+        <span className={styles.smartphoneDetail__basePrice}>
+          {selectedStorageOption
+            ? selectedStorageOption.price
+            : messages("smartphoneDetail.priceFrom.label", { basePrice })}
+        </span>
+        <div className={styles.smartphoneDetail__storage}>
+          <span>{messages("smartphoneDetail.storage.label")}</span>
+          <form className={styles.smartphoneDetail__storageForm}>
+            {storageOptions?.map((option, i) => (
+              <label
+                className={styles.smartphoneDetail__storageLabel}
+                key={option.capacity + i}
+                style={{
+                  "--dynamic-storageLabel-borderColor":
+                    selectedStorageOption?.capacity === option.capacity
+                      ? "#000000"
+                      : "#CCCCCC",
+                }}
+              >
+                <input
+                  className={styles.smartphoneDetail__storageInput}
+                  type="radio"
+                  name={option.capacity}
+                  value={option.capacity}
+                  checked={selectedStorageOption?.capacity === option.capacity}
+                  onChange={() => setSelectedStorageOption(option)}
+                />
+                {option.capacity}
+              </label>
+            ))}
+          </form>
+        </div>
+        <div className={styles.smartphoneDetail__color}>
+          <span>{messages("smartphoneDetail.color.label")}</span>
+          <form className={styles.smartphoneDetail__colorForm}>
+            {colorOptions?.map((option, i) => (
+              <label
+                className={styles.smartphoneDetail__colorLabel}
+                key={option.name + i}
+                style={{
+                  "--dynamic-colorLabel-color": option.hexCode,
+                  "--dynamic-colorLabel-borderColor":
+                    selectedColorOption?.name === option.name
+                      ? "#000000"
+                      : "#CCCCCC",
+                }}
+              >
+                <input
+                  className={styles.smartphoneDetail__colorInput}
+                  type="radio"
+                  name={option.name}
+                  aria-label={option.name}
+                  value={option.name}
+                  checked={selectedStorageOption?.name === option.name}
+                  onChange={() => setSelectedColorOption(option)}
+                />
+              </label>
+            ))}
+          </form>
+          <span>{selectedColorOption?.name}</span>
+        </div>
+        <button
+          disabled={!selectedStorageOption}
+          className={styles.smartphoneDetail__addButton}
+          onClick={() => {
+            addNewSmartphoneToCart({
+              id,
+              name,
+              imageUrl: selectedColorOption.imageUrl,
+              color: selectedColorOption.name,
+              storage: selectedStorageOption.capacity,
+              price: selectedStorageOption.price,
+            });
+          }}
+        >
+          {messages("smartphoneDetail.addButton.label")}
+        </button>
       </div>
-      <div className={styles.smartphoneDetail__color}>
-        <span>{messages("smartphoneDetail.color.label")}</span>
-        <form className={styles.smartphoneDetail__colorForm}>
-          {colorOptions?.map((option, i) => (
-            <label
-              className={styles.smartphoneDetail__colorLabel}
-              key={option.name + i}
-              style={{
-                "--dynamic-colorLabel-color": option.hexCode,
-                "--dynamic-colorLabel-borderColor":
-                  selectedColorOption?.name === option.name
-                    ? "#000000"
-                    : "#CCCCCC",
-              }}
-            >
-              <input
-                className={styles.smartphoneDetail__colorInput}
-                type="radio"
-                name={option.name}
-                aria-label={option.name}
-                value={option.name}
-                checked={selectedStorageOption?.name === option.name}
-                onChange={() => setSelectedColorOption(option)}
-              />
-            </label>
-          ))}
-        </form>
-        <span>{selectedColorOption?.name}</span>
-      </div>
-      <button
-        disabled={!selectedStorageOption}
-        className={styles.smartphoneDetail__addButton}
-        onClick={() => {
-          addNewSmartphoneToCart({
-            id,
-            name,
-            imageUrl: selectedColorOption.imageUrl,
-            color: selectedColorOption.name,
-            storage: selectedStorageOption.capacity,
-            price: selectedStorageOption.price,
-          });
-        }}
-      >
-        {messages("smartphoneDetail.addButton.label")}
-      </button>
     </section>
   );
 };
