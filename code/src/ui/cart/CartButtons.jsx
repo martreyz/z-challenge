@@ -10,12 +10,12 @@ const CartButtons = ({ cartSmartphonesQuantity }) => {
 
   return (
     <footer className={styles.cartButtonGroup}>
-      <Link tabindex="0" href={"/"} className={styles.cartButton}>
+      <Link tabIndex="0" href={"/"} className={styles.cartButton}>
         {messages("cart.backButton.label")}
       </Link>
       {cartSmartphonesQuantity > 0 && (
         <button
-          tabindex="0"
+          tabIndex="0"
           className={`${styles.cartButton} ${styles.cartButtonPay}`}
         >
           {messages("cart.payButton.label")}

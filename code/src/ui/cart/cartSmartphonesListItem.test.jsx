@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { mockCartSmartphones } from "@/test/testConstants";
 import { useShoppingCart } from "@/ui/contexts/ShoppingCartContext";
 import CartSmartphonesListItem from "@/ui/cart/CartSmartphonesListItem";
+import { mockUseMessages } from "../../../jest.setup";
 
 jest.mock("../contexts/ShoppingCartContext", () => ({
   useShoppingCart: jest.fn(),
@@ -36,10 +37,13 @@ describe("CartSmartphonesListItem component", () => {
 
     const expectedUrlPart = encodeURIComponent(imageUrl);
     const regex = new RegExp(expectedUrlPart);
-    expect(screen.getByAltText(`${name} in color ${color}`)).toHaveAttribute(
-      "src",
-      expect.stringMatching(regex)
+    expect(mockUseMessages).toHaveBeenCalledWith(
+      "altText.smartphoneAndColorImage",
+      { name, color }
     );
+    expect(
+      screen.getByAltText("altText.smartphoneAndColorImage")
+    ).toHaveAttribute("src", expect.stringMatching(regex));
   });
 
   it("Should call removeSmartphoneFromCart with cartId when clicking on removeButton", () => {

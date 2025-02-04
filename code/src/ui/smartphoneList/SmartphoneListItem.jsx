@@ -12,7 +12,7 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   return (
     <li className={styles.smartphoneItem}>
       <Link
-        tabindex="0"
+        tabIndex="0"
         aria-label={messages("ariaLabel.detailPage", {
           brand,
           name,

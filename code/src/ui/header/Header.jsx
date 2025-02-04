@@ -17,7 +17,7 @@ const Header = () => {
       <Link
         aria-label={messages("ariaLabel.homePage")}
         title={messages("ariaLabel.homePage")}
-        tabindex="0"
+        tabIndex="0"
         className={styles.headerLandingLink}
         href={"/"}
       >
@@ -29,7 +29,7 @@ const Header = () => {
         />
       </Link>
       <Link
-        tabindex="0"
+        tabIndex="0"
         className={styles.headerShoppingCartLink}
         href={"/cart"}
         aria-label={messages("ariaLabel.cartPage")}

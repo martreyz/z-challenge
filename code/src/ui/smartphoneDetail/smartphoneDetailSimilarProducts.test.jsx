@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { useSmartphoneDetailContext } from "@/ui/contexts/SmartphoneDetailContext";
 import { mockSmartphoneDetail } from "@/test/testConstants";
 import SmartphoneDetailSimilarProducts from "@/ui/smartphoneDetail/SmartphoneDetailSimilarProducts";
+import { mockUseMessages } from "../../../jest.setup";
 
 const mockSmartphoneDetailContext = {
   smartphoneDetail: mockSmartphoneDetail,
@@ -29,7 +30,13 @@ describe("SmartphoneDetailSimilarProducts component", () => {
       expect(
         screen.getByText(new RegExp(`\\b${basePrice}\\s*EUR\\b`))
       ).toBeInTheDocument();
-      expect(screen.getByAltText(`Image of ${brand} ${name}`));
+      expect(mockUseMessages).toHaveBeenCalledWith(
+        "altText.smartphoneAndBrandImage",
+        { brand, name }
+      );
+      expect(
+        screen.getAllByAltText("altText.smartphoneAndBrandImage")
+      ).not.toHaveLength(0);
     }
   });
 });
