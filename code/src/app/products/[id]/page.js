@@ -15,7 +15,12 @@ export default async function Home({ params }) {
         <Header />
         <main>
           <nav className="smartphoneDetailPage__header">
-            <Link className="smartphoneDetail__backButton" href={"/"}>
+            <Link
+              className="smartphoneDetail__backButton"
+              aria-label="Redirect to home page"
+              title="Redirect to home page"
+              href={"/"}
+            >
               <Image
                 src="/assets/chevron_left.svg"
                 alt="Chevron left Back button"

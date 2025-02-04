@@ -12,7 +12,9 @@ const SmartphoneItem = ({ id, name, brand, basePrice, imageUrl }) => {
   return (
     <li className={styles.smartphoneItem}>
       <Link
-        aria-label="Redirect to product page"
+        tabindex="0"
+        aria-label={messages("ariaLabel.detailPage")}
+        title={messages("ariaLabel.detailPage")}
         prefetch={false}
         href={`/products/${id}`}
         className={styles.smartphoneItem__clickable}

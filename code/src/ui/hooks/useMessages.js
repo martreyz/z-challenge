@@ -49,5 +49,8 @@ const buildMessage = ({
     "altText.smartphoneAndColorImage": `${name} in color ${color}`,
     "altText.smartphoneAndBrandImage": `Image of ${brand} ${name}`,
     "altText.logo": "Logo",
+    "ariaLabel.homePage": "Go to home page",
+    "ariaLabel.detailPage": "Go to detail page",
+    "ariaLabel.cartPage": "Go to cart page",
   };
 };

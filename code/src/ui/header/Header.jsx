@@ -14,7 +14,13 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link href={"/"}>
+      <Link
+        aria-label={messages("ariaLabel.homePage")}
+        title={messages("ariaLabel.homePage")}
+        tabindex="0"
+        className={styles.headerLandingLink}
+        href={"/"}
+      >
         <Image
           src="/assets/logo.svg"
           alt={messages("altText.logo")}
@@ -22,7 +28,13 @@ const Header = () => {
           height={30}
         />
       </Link>
-      <Link className={styles.shoppingCart} href={"/cart"}>
+      <Link
+        tabindex="0"
+        className={styles.headerShoppingCartLink}
+        href={"/cart"}
+        aria-label={messages("ariaLabel.cartPage")}
+        title={messages("ariaLabel.cartPage")}
+      >
         <Image
           src={
             cartSmartphonesList.length > 0
