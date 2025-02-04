@@ -8,7 +8,7 @@ export const useSmartphoneSearcher = (updateSmartphoneListData) => {
   };
 
   useEffect(() => {
-    if (searchCriteria) {
+    if (searchCriteria !== undefined) {
       updateSmartphoneListData(searchCriteria);
     }
   }, [searchCriteria]);
