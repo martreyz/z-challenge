@@ -50,7 +50,8 @@ const buildMessage = ({
     "altText.smartphoneAndBrandImage": `Image of ${brand} ${name}`,
     "altText.logo": "Logo",
     "ariaLabel.homePage": "Go to home page",
-    "ariaLabel.detailPage": "Go to detail page",
+    "ariaLabel.detailPage": `Go to detail page of ${brand} ${name}, price from ${basePrice}`,
     "ariaLabel.cartPage": "Go to cart page",
+    "ariaLabel.searcher": "Search for a smartphone name or brand",
   };
 };

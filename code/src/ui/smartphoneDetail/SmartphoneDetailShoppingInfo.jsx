@@ -61,8 +61,14 @@ const SmartphoneDetailShoppingInfo = () => {
           <form className={styles.smartphoneDetail__storageForm}>
             {storageOptions?.map((option, i) => (
               <label
+                tabIndex={0}
                 className={styles.smartphoneDetail__storageLabel}
                 key={option.capacity + i}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setSelectedStorageOption(option);
+                  }
+                }}
                 style={{
                   "--dynamic-storageLabel-borderColor":
                     selectedStorageOption?.capacity === option.capacity
@@ -88,6 +94,7 @@ const SmartphoneDetailShoppingInfo = () => {
           <form className={styles.smartphoneDetail__colorForm}>
             {colorOptions?.map((option, i) => (
               <label
+                tabIndex={0}
                 className={styles.smartphoneDetail__colorLabel}
                 key={option.name + i}
                 style={{
@@ -96,6 +103,11 @@ const SmartphoneDetailShoppingInfo = () => {
                     selectedColorOption?.name === option.name
                       ? "#000000"
                       : "#CCCCCC",
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setSelectedColorOption(option);
+                  }
                 }}
               >
                 <input
@@ -113,6 +125,7 @@ const SmartphoneDetailShoppingInfo = () => {
           <span>{selectedColorOption?.name}</span>
         </section>
         <button
+          tabIndex={0}
           disabled={!selectedStorageOption || !selectedColorOption}
           className={styles.smartphoneDetail__addButton}
           onClick={() => {
